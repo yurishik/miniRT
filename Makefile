@@ -15,9 +15,14 @@ PARSER_FILES := parser/check_args.c \
 				parser/error.c \
 				parser/validate_chars.c \
 				parser/read_file.c \
-				parser/validate_structure.c
+				parser/validate_structure.c \
+				parser/validate_lines.c \
+				parser/validate_format.c \
+				parser/validate_a_c_l.c \
+				parser/validate_sp_pl_cy.c
 
 UTILS_FILES := utils/utils.c \
+				utils/splitting.c \
 				utils/utils_for_debug.c
 
 SRCFILES := main.c \

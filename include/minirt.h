@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 10:07:11 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 12:53:25 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/09/27 13:55:31 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@
 # include "parser.h"
 # include "utils.h"
 
-# define TRUE 1
-# define FALSE 0
-# define NO_ERROR 0
-# define HAS_ERROR 1
+# define TRUE 		1
+# define FALSE 		0
+# define NO_ERROR 	0
+# define HAS_ERROR 	1
 
 # define ID_AMBIENT   "A"
 # define ID_CAMERA    "C"
@@ -33,6 +33,19 @@
 # define ID_SPHERE    "sp"
 # define ID_PLANE     "pl"
 # define ID_CYLINDER  "cy"
+
+# define MAX_COORD       100000.0
+# define MIN_COORD      -100000.0
+# define MAX_DIMENSION   100000.0
+# define MIN_DIMENSION   0.0001
+# define MIN_FOV         0
+# define MAX_FOV         180
+# define MIN_RATIO       0.0
+# define MAX_RATIO       1.0
+# define MIN_RGB	     0
+# define MAX_RGB	     255
+# define MIN_NORM_VEC   -1.0
+# define MAX_NORM_VEC	 1.0
 
 typedef struct s_element_counts
 {

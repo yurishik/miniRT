@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 10:03:14 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 13:09:34 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/09/27 15:25:20 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,26 @@ char	**read_valid_lines(const char *path);
 
 // validate_structure.c
 int		validate_structure(char **lines, t_element_counts *counts);
+
+// validate_lines.c
+int		validate_lines(char **lines);
+
+// validate_format.c
+int		is_valid_double_str(const char *str);
+int		is_valid_int_str(const char *str);
+int		is_valid_vector_format(const char *str);
+int		is_valid_rgb_format(const char *str);
+int		is_valid_orientation_format(const char *str);
+
+// validate_a_c_l.c
+size_t	count_tokens(char **tokens);
+int		validate_ambient(char **tokens);
+int		validate_camera(char **tokens);
+int		validate_light(char **tokens);
+
+// validate_sp_pl_cy.c
+int		validate_sphere(char **tokens);
+int		validate_plane(char **tokens);
+int		validate_cylinder(char **tokens);
 
 #endif

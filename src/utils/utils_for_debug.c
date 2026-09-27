@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 12:46:20 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 13:02:16 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/09/27 14:18:45 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
  * @brief 文字列配列を表示する
  *
  */
-void	print_char_array_for_debug(char **array)
+void	print_str_array_for_debug(char **array)
 {
 	int	i;
 

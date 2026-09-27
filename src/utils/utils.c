@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 11:12:51 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 13:01:22 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/09/27 15:10:39 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,48 @@ void	free_str_array(char **arr)
 		i++;
 	}
 	free(arr);
+}
+
+/**
+ * @brief 小数点以下の処理を切り出し(just for norminette)
+ */
+static double	parse_fraction(const char *str)
+{
+	double	fraction;
+	double	factor;
+
+	fraction = 0.0;
+	factor = 0.1;
+	while (ft_isdigit(*str))
+	{
+		fraction += (*str++ - '0') * factor;
+		factor *= 0.1;
+	}
+	return (fraction);
+}
+
+/**
+ * @brief 文字列を double に変換する
+ */
+double	ft_atof(const char *str)
+{
+	double	result;
+	double	sign;
+
+	result = 0.0;
+	sign = 1.0;
+	if (!str)
+		return (0.0);
+	while (ft_isspace(*str))
+		str++;
+	if (*str == '-' || *str == '+')
+	{
+		if (*str++ == '-')
+			sign = -1.0;
+	}
+	while (ft_isdigit(*str))
+		result = result * 10.0 + (*str++ - '0');
+	if (*str == '.')
+		result += parse_fraction(str + 1);
+	return (result * sign);
 }
