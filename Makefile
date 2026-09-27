@@ -9,7 +9,8 @@ RM := rm -f
 RMDIR := rm -rf
 
 
-PARSER_FILES := parser/check_args.c
+PARSER_FILES := parser/check_args.c \
+				parser/error.c
 
 SRCFILES := main.c \
 			$(PARSER_FILES)

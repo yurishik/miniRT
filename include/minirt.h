@@ -6,8 +6,11 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 10:07:11 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 10:07:19 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/09/27 10:44:43 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+
+#include "../libft/libft.h"
 #include "parser.h"

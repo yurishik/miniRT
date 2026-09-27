@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/27 10:03:14 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 10:43:10 by yurishik         ###   ########.fr       */
+/*   Created: 2026/09/27 10:18:00 by yurishik          #+#    #+#             */
+/*   Updated: 2026/09/27 10:43:03 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
+#include "minirt.h"
 
-#define NO_ERROR 0
-#define HAS_ERROR 1
-
-// check_args.c
-int	valid_extension(const char *filename, const char *ext);
-int check_args(int argc, char **argv);
-
-// error.c
-int print_error(const char *msg);
-
-#endif
+/**
+ * @brief エラー文言の表示
+ *
+ * @param msg 続けて表示するメッセージ
+ */
+int print_error(const char *msg)
+{
+	ft_putstr_fd("Error\n", STDERR_FILENO);
+	if (msg)
+	{
+		ft_putstr_fd((char *)msg, STDERR_FILENO);
+		ft_putstr_fd("\n", STDERR_FILENO);
+	}
+	return (HAS_ERROR);
+}
