@@ -8,12 +8,20 @@ CFLAGS := -Wall -Wextra -Werror -I$(INCLUDE_DIR)
 RM := rm -f
 RMDIR := rm -rf
 
+GNL_FILES := get_next_line/get_next_line_utils.c \
+				get_next_line/get_next_line.c 
 
 PARSER_FILES := parser/check_args.c \
-				parser/error.c
+				parser/error.c \
+				parser/line_validation.c \
+				parser/read_file.c
+
+UTILS_FILES := utils/utils.c
 
 SRCFILES := main.c \
-			$(PARSER_FILES)
+			$(GNL_FILES) \
+			$(PARSER_FILES) \
+			$(UTILS_FILES)
 
 SRCS := $(addprefix $(SRC_DIR)/, $(SRCFILES))
 OBJS := $(SRCS:%.c=%.o)
@@ -26,7 +34,7 @@ $(NAME): $(LIBFT) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -lreadline -o $(NAME)
 
 $(LIBFT):
-	$(MAKE) -C $(LIBFT_DIR)
+	$(MAKE) -C $(LIBFT_DIR) bonus
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

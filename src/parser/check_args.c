@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 10:12:03 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 10:50:06 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/09/27 11:05:28 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	check_args(int argc, char **argv)
 {
 	if (argc != 2)
 		return (print_error("Invalid number of arguments"));
-	if (valid_extension(argv[1], ".rt"))
+	if (valid_extension(argv[1], ".rt") == HAS_ERROR)
 		return (print_error("Invalid file extension"));
 	return (NO_ERROR);
 }

@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.h                                           :+:      :+:    :+:   */
+/*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/27 10:03:14 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 11:58:37 by yurishik         ###   ########.fr       */
+/*   Created: 2026/09/27 11:14:12 by yurishik          #+#    #+#             */
+/*   Updated: 2026/09/27 11:58:40 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSER_H
-# define PARSER_H
+#ifndef UTILS_H
+# define UTILS_H
 
-// check_args.c
-int		valid_extension(const char *filename, const char *ext);
-int		check_args(int argc, char **argv);
-
-// error.c
-int		print_error(const char *msg);
-
-// line_validation.c
-int		is_blank_line(const char *line);
-int		is_allowed_char(char c);
-int		is_valid_chars_line(const char *line);
-
-// read_file.c
-char	**read_valid_lines(const char *path);
+// utils.c
+char	*get_next_line_trim(int fd);
+void	free_str_array(char **arr);
+void	print_char_array_for_debug(char **array);
 
 #endif
