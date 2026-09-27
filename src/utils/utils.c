@@ -6,12 +6,32 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 11:12:51 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 11:59:03 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/09/27 13:01:22 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
+/**
+ * @brief ある文字がスペースかどうか判定する
+ *
+ * @param c
+ * @return TRUE/FALSE
+ */
+int	ft_isspace(int c)
+{
+	if (c == ' ' || c == '\f' || c == '\n'
+		|| c == '\r' || c == '\t' || c == '\v')
+		return (TRUE);
+	return (FALSE);
+}
+
+/**
+ * @brief get_next_lineで取得したlineの末尾の\nを削除する
+ *
+ * @param fd
+ * @return line \nを削除したline
+ */
 char	*get_next_line_trim(int fd)
 {
 	char	*line;
@@ -44,18 +64,4 @@ void	free_str_array(char **arr)
 		i++;
 	}
 	free(arr);
-}
-
-void	print_char_array_for_debug(char **array)
-{
-	int	i;
-
-	if (!array)
-		return ;
-	i = 0;
-	while (array[i])
-	{
-		ft_putendl_fd(array[i], STDOUT_FILENO);
-		i++;
-	}
 }

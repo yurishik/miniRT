@@ -14,9 +14,11 @@ GNL_FILES := get_next_line/get_next_line_utils.c \
 PARSER_FILES := parser/check_args.c \
 				parser/error.c \
 				parser/validate_line.c \
-				parser/read_file.c
+				parser/read_file.c \
+				parser/validate_structure.c
 
-UTILS_FILES := utils/utils.c
+UTILS_FILES := utils/utils.c \
+				utils/utils_for_debug.c
 
 SRCFILES := main.c \
 			$(GNL_FILES) \

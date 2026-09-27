@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   line_validation.c                                  :+:      :+:    :+:   */
+/*   validate_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 11:20:13 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 11:20:53 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/09/27 12:30:53 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	is_blank_line(const char *line)
  */
 int	is_allowed_char(char c)
 {
-	if (ft_strchr("ACLsplcy0123456789+-. ,\n", c))
+	if (ft_strchr("ACLsplcy0123456789+-. ,\n\f\r\t\v", c))
 		return (TRUE);
 	return (FALSE);
 }

@@ -6,12 +6,14 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 10:03:14 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 12:06:55 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/09/27 12:53:55 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSER_H
 # define PARSER_H
+
+typedef struct s_element_counts	t_element_counts;
 
 // check_args.c
 int		valid_extension(const char *filename, const char *ext);
@@ -27,5 +29,8 @@ int		is_valid_chars_line(const char *line);
 
 // read_file.c
 char	**read_valid_lines(const char *path);
+
+// validate_structure.c
+int		validate_structure(char **lines, t_element_counts *counts);
 
 #endif

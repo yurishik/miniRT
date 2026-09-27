@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/27 11:14:12 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 12:56:13 by yurishik         ###   ########.fr       */
+/*   Created: 2026/09/27 12:57:49 by yurishik          #+#    #+#             */
+/*   Updated: 2026/09/27 12:57:51 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include "libft.h"
 
-typedef struct s_element_counts	t_element_counts;
-
-// utils.c
-int		ft_isspace(int c);
-char	*get_next_line_trim(int fd);
-void	free_str_array(char **arr);
-
-// utils_for_debug.c
-void	print_char_array_for_debug(char **array);
-void	print_element_counts_for_debug(const t_element_counts *counts);
-
-#endif
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	if (s1 == s2)
+		return (0);
+	while (*s1 || *s2)
+	{
+		if (*s1 != *s2)
+		{
+			return (*(const unsigned char *)s1 - *(const unsigned char *)s2);
+		}
+		s1++;
+		s2++;
+	}
+	return (0);
+}
