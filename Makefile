@@ -13,7 +13,7 @@ GNL_FILES := get_next_line/get_next_line_utils.c \
 
 PARSER_FILES := parser/check_args.c \
 				parser/error.c \
-				parser/line_validation.c \
+				parser/validate_line.c \
 				parser/read_file.c
 
 UTILS_FILES := utils/utils.c
