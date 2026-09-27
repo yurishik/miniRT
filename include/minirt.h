@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 10:07:11 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 13:55:31 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/09/27 20:28:51 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,13 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
+# include <math.h>
 
 # include "../libft/libft.h"
 # include "get_next_line.h"
 # include "parser.h"
 # include "utils.h"
+# include "calc_vector.h"
 
 # define TRUE 		1
 # define FALSE 		0
@@ -46,6 +48,15 @@
 # define MAX_RGB	     255
 # define MIN_NORM_VEC   -1.0
 # define MAX_NORM_VEC	 1.0
+
+# define EPSILON	1e-6
+
+typedef struct s_vec3
+{
+	double	x;
+	double	y;
+	double	z;
+}	t_vec3;
 
 typedef struct s_element_counts
 {

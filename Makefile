@@ -21,6 +21,11 @@ PARSER_FILES := parser/check_args.c \
 				parser/validate_a_c_l.c \
 				parser/validate_sp_pl_cy.c
 
+CALC_VECTOR_FILES := calc_vector/vec_basic.c \
+						calc_vector/vec_scolar.c \
+						calc_vector/vec_vec.c \
+						calc_vector/vec_length.c
+
 UTILS_FILES := utils/utils.c \
 				utils/splitting.c \
 				utils/utils_for_debug.c
@@ -28,6 +33,7 @@ UTILS_FILES := utils/utils.c \
 SRCFILES := main.c \
 			$(GNL_FILES) \
 			$(PARSER_FILES) \
+			$(CALC_VECTOR_FILES) \
 			$(UTILS_FILES)
 
 SRCS := $(addprefix $(SRC_DIR)/, $(SRCFILES))
@@ -38,7 +44,7 @@ LIBFT := $(LIBFT_DIR)/libft.a
 all: $(NAME)
 
 $(NAME): $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -lreadline -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -lm -o $(NAME)
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR) bonus
