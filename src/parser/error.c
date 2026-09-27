@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 10:18:00 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 10:43:03 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/09/27 10:50:24 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  *
  * @param msg 続けて表示するメッセージ
  */
-int print_error(const char *msg)
+int	print_error(const char *msg)
 {
 	ft_putstr_fd("Error\n", STDERR_FILENO);
 	if (msg)

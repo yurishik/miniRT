@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 10:12:03 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 10:46:13 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/09/27 10:50:06 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int	valid_extension(const char *filename, const char *ext)
  * @param char **argv (mainからそのまま渡す)
  * @return なにか問題があればHAS_ERROR, 問題なければNO_ERROR
  */
-int check_args(int argc, char **argv)
+int	check_args(int argc, char **argv)
 {
 	if (argc != 2)
 		return (print_error("Invalid number of arguments"));

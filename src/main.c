@@ -6,16 +6,15 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 10:03:19 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 10:43:26 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/09/27 10:49:51 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	if (check_args(argc, argv))
 		return (1);
-
 	return (0);
 }
