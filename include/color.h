@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   color.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/27 23:23:43 by hisasano          #+#    #+#             */
-/*   Updated: 2026/09/28 00:33:00 by hisasano         ###   ########.fr       */
+/*   Created: 2026/09/28 00:19:50 by hisasano          #+#    #+#             */
+/*   Updated: 2026/09/28 00:19:55 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#ifndef COLOR_H
+# define COLOR_H
 
-int main(int ac, char **av)
+typedef struct s_color
 {
-    t_scene scene;
+	int	r;
+	int	g;
+	int	b;
+}	t_color;
 
-    check_args(ac, av);
-    parse_scene(av[1], &scene);
-
-}
+#endif

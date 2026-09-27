@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 10:07:11 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 20:37:13 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/09/28 00:31:50 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@
 # include "get_next_line.h"
 # include "parser.h"
 # include "utils.h"
+
+# include "math.h"
+# include "color.h"
+# include "object.h"
+# include "scene.h"
 
 # define TRUE 		1
 # define FALSE 		0
@@ -57,24 +62,5 @@ typedef struct s_element_counts
 	int	cylinder_count;
 	int	total_objects;
 }	t_element_counts;
-
-typedef struct s_vec3 {
-    double    x;
-    double    y;
-    double    z;
-}    t_vec3;
-
-typedef struct s_color
-{
-    int r;
-    int g;
-    int b;
-}   t_color;
-
-typedef struct s_ray
-{
-    t_vec3  origin;
-    t_vec3  direction;
-}   t_ray;
 
 #endif

@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   math.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/27 23:23:43 by hisasano          #+#    #+#             */
-/*   Updated: 2026/09/28 00:33:00 by hisasano         ###   ########.fr       */
+/*   Created: 2026/09/28 00:19:02 by hisasano          #+#    #+#             */
+/*   Updated: 2026/09/28 00:25:52 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#ifndef MATH_H
+# define MATH_H
 
-int main(int ac, char **av)
+typedef struct s_vec3
 {
-    t_scene scene;
+	double	x;
+	double	y;
+	double	z;
+}	t_vec3;
 
-    check_args(ac, av);
-    parse_scene(av[1], &scene);
+typedef struct s_ray
+{
+	t_vec3	origin;
+	t_vec3	direction;
+}	t_ray;
+// 方向ベクトル：t_vec3  direction;
 
-}
+#endif
