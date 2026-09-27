@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 19:49:08 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 20:25:22 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/09/27 20:35:15 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,3 @@ t_vec3	vec_div(t_vec3 v, double k)
 	v.z /= k;
 	return (v);
 }
-
