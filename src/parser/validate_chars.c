@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 11:20:13 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 12:30:53 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/09/27 13:09:01 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	is_blank_line(const char *line)
 	i = 0;
 	while (line[i])
 	{
-		if (line[i] != '\n')
+		if (!ft_isspace(line[i]))
 			return (FALSE);
 		i++;
 	}

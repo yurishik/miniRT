@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 10:03:14 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 12:53:55 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/09/27 13:09:34 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int		check_args(int argc, char **argv);
 // error.c
 int		print_error(const char *msg);
 
-// validate_line.c
+// validate_chars.c
 int		is_blank_line(const char *line);
 int		is_allowed_char(char c);
 int		is_valid_chars_line(const char *line);
