@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 19:40:55 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 19:44:49 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/09/30 18:54:25 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ typedef struct s_vec3	t_vec3;
 t_vec3	vec_new(double x, double y, double z);
 t_vec3	vec_negate(t_vec3 v);
 
-// vec_scolar.c
+// vec_scalar.c
 t_vec3	vec_mult(t_vec3 v, double k);
 t_vec3	vec_div(t_vec3 v, double k);
 

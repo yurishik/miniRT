@@ -22,7 +22,7 @@ PARSER_FILES := parser/check_args.c \
 				parser/validate_sp_pl_cy.c
 
 CALC_VECTOR_FILES := calc_vector/vec_basic.c \
-						calc_vector/vec_scolar.c \
+						calc_vector/vec_scalar.c \
 						calc_vector/vec_vec.c \
 						calc_vector/vec_length.c
 
