@@ -1,46 +1,79 @@
-# miniRT
+*This project has been created as part of the 42 curriculum by [your_login].*
 
-## validation
+# miniRT - A Simple 3D Ray Tracer in C
 
+## Description
+**miniRT** is a fundamental Computer Graphics project developed as part of the 42 curriculum. The primary goal of this project is to implement a minimalist ray tracing engine from scratch in C using the MiniLibX graphical library, without relying on third-party 3D graphics engines.
+
+### Overview
+The program casts mathematical rays from a virtual pinhole camera into a 3D scene, tests for intersections with geometric objects, and computes light interactions based on the Lambertian reflection model.
+
+Key highlights of the implementation:
+- **Pinhole Camera Ray Casting**: Maps 2D screen pixels to normalized 3D ray direction vectors, accounting for viewport bounds and aspect ratios.
+- **Ray-Sphere Intersection**: Solves quadratic equation systems optimized with simplified discriminant formulas ($b = 2h$) under normalized direction vectors.
+- **Lighting & Shading**: Evaluates surface normals and light directions to compute ambient illumination (ratio and RGB component multiplication) alongside direct diffuse reflection (clamped to prevent color overflow).
+- **Efficient Memory Rendering**: Direct pixel-buffer manipulation via an off-screen image buffer (`my_mlx_pixel_put`) rather than individual synchronous drawing calls, ensuring smooth frame delivery.
+
+---
+
+## Features
+- **Geometric Primitives**: Sphere rendering with ray-surface collision detection.
+- **Illumination Model**:
+  - **Ambient Lighting**: Global base illumination scaling object colors by ambient ratio and RGB tint.
+  - **Diffuse Reflection**: Lambertian cosine law based on dot products between surface normals and light vectors.
+- **Window & Event Management**:
+  - Clean GUI initialization with MiniLibX.
+  - Graceful exit on `ESC` key press or window close button click (releasing allocated image buffers).
+
+---
+
+## Instructions
+
+### Prerequisites
+- Clang or GCC compiler
+- Make
+- Standard C libraries and X11 development headers (for Linux/X-Window environments)
+
+### Compilation
+Clone the repository and run `make` at the root of the project:
+```bash
+make
 ```
-[ 1. 引数 & 拡張子の検証 ]
-       │  ・引数の個数が正しいか（argc == 2）
-       │  ・ファイル名が4文字より長く、末尾が厳密に ".rt" か
-       ▼
-[ 2. ファイル読み込み & ホワイトリスト文字検証 ]
-       │  ・ファイルを open（ディレクトリ・権限エラーの排除）
-       │  ・1行ずつ読み込み（GNL）
-       │  ・空行・改行のみの行はスキップ
-       │  ・行内に「許可されていない不正文字」がないか1文字ずつ検査
-       │      許可文字: 0-9, +, -, ., ,, A, C, L, s, p, l, c, y, スペース,  \n
-       │  ・有効な行のみを char **lines に格納
-       │  ・有効な行数が3以上であるかを確認
-       ▼ (NGならリソース解放して即座に終了)
-[ 3. ステージ1: ファイル全体の構造検証 ]
-       │  ・lines の各行をポインタ走査（mallocなし）
-       │  ・skip_whitespace で先頭空白をスキップ
-       │  ・識別子配列（g_valid_ids: "A", "C", "L", "sp", "pl", "cy"）と完全一致比較
-       │  ・未定義の識別子（例: AA, CY, foo）があれば即座にエラー
-       │  ・必須要素（"A", "C", "L"）の出現回数がそれぞれ「厳密に1回」か確認
-       ▼ (NGなら lines を解放して即座に終了)
-[ 4. ステージ2: 各行のトークン化 & バリデーション ]
-       │  ・1行ずつ ft_split_whitespace で char **tokens に分解（連続空白の吸収）
-       │  ・識別子に応じたトークン数（要素数）の完全一致チェック
-       │  ・カンマ区切りの書式チェック（個数、前後の欠落、連続カンマの排除）
-       │  ・数値の書式チェック（符号の位置、数字の有無、小数点の重複・位置）
-       │  ・値の範囲・幾何学的整合性のチェック
-       │      - RGB: 0〜255 の整数
-       │      - 明るさ比率: 0.0〜1.0
-       │      - FOV: 0〜180
-       │      - 球の直径、円柱の直径・高さ: > 0（厳密な正数）
-       │      - 向きベクトル: 各成分 [-1.0, 1.0] かつ ゼロベクトルでないこと
-       │  ・行ごとの tokens をその場ですぐ解放
-       ▼ (1つでもNGなら lines を解放して即座に終了)
-[ 5. ステージ3: 構造体への格納・正規化 ]
-       │  ・全行の構文・数値が100%安全な状態
-       │  ・エラーチェックなしで安全に数値変換（ft_atof / ft_atoi）
-       │  ・向きベクトルの正規化（長さを厳密に 1.0 に補正）
-       │  ・シーン構造体（t_scene）へデータを代入
-       ▼
-[ 6. lines の解放・描画フェーズへ移行 ]
+
+This generates the `minirt` executable.
+
+Additional build targets:
+
+* `make clean`: Removes intermediate object files (`.o`).
+* `make fclean`: Removes object files and the compiled binary.
+* `make re`: Recompiles the entire project from scratch.
+
+### Execution
+
+Run the executable:
+
+```bash
+./minirt rt_files/sample.rt
 ```
+
+### Controls
+
+* **ESC**: Close window and quit cleanly.
+* **Window Close Button ('X')**: Destroy window and exit.
+
+---
+
+## Resources
+
+### References
+- [レイトレーシング入門 (Introduction to Ray Tracing)](https://jun-networks.hatenablog.com/entry/2021/04/02/043216): Conceptual guide for ray-sphere intersection equations, vector calculations, and the Lambertian diffuse model.
+- [Understand miniRT - 42 Cursus Guide](https://42-cursus.gitbook.io/guide/4-rank-04/minirt/understand-minirt): Architectural overview for miniRT, covering camera ray generation, viewport mapping, and scene management.
+- [Building a miniRT (42 Project) - Part 1 by İrem Öztimur](https://medium.com/@iremoztimur/building-a-minirt-42-project-part-1-ae7a00aebdb9): Practical step-by-step roadmap for miniRT setup and MiniLibX image buffer rendering.
+
+### Use of AI
+During the development of this project, AI (Gemini) was utilized as a collaborative assistant for the following tasks:
+- **Understanding Concepts**: Clarifying theoretical aspects of 3D ray tracing, including pinhole camera ray casting, quadratic intersection formulas (discriminants) for spheres, and Lambertian reflection using surface normals.
+- **Translation**: Assisting in drafting and polishing this README into clear and natural English.
+- **Debugging and Refactoring**: Restructuring code modularity (e.g., isolating `calc_ambient_color` and `calc_diffuse_color`) to strictly comply with Norminette rules and the 25-line function limit.
+- **Data Structures**: Designing unified data structures (`t_vars`, `t_camera`, `t_light`, `t_sphere`, `t_ambient`) to cleanly pass scene configurations across rendering routines.
+- **Implementation & Testing Advice**: Verifying off-screen buffer addressing (`my_mlx_pixel_put`), fine-tuning boundary parameters (such as minimum intersection distance to prevent surface acne and color clamping between `0.0` and `1.0`), and discussing leak-free resource destruction on exit.
