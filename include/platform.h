@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   platform.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/27 23:23:43 by hisasano          #+#    #+#             */
-/*   Updated: 2026/09/28 00:33:00 by hisasano         ###   ########.fr       */
+/*   Created: 2026/10/02 23:03:44 by hisasano          #+#    #+#             */
+/*   Updated: 2026/10/02 23:03:47 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minirt.h"
+#ifndef PLATFORM_H
+# define PLATFORM_H
 
-int main(int ac, char **av)
+typedef struct s_platform
 {
-    t_scene scene;
+	void	*mlx;
+	void	*win;
+}	t_platform;
 
-    check_args(ac, av);
-    parse_scene(av[1], &scene);
-
-}
+#endif

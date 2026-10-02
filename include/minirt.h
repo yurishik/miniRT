@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 10:07:11 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/28 00:31:50 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/02 16:04:32 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@
 # include "get_next_line.h"
 # include "parser.h"
 # include "utils.h"
-
-# include "math.h"
-# include "color.h"
-# include "object.h"
-# include "scene.h"
 
 # define TRUE 		1
 # define FALSE 		0

@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color.h                                            :+:      :+:    :+:   */
+/*   vec3.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/28 00:19:50 by hisasano          #+#    #+#             */
-/*   Updated: 2026/09/28 00:19:55 by hisasano         ###   ########.fr       */
+/*   Created: 2026/09/30 22:48:14 by hisasano          #+#    #+#             */
+/*   Updated: 2026/09/30 23:29:28 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef COLOR_H
-# define COLOR_H
+#ifndef VEC3_H
+# define VEC3_H
 
-typedef struct s_color
+typedef struct s_vec3
 {
-	int	r;
-	int	g;
-	int	b;
-}	t_color;
+	double	x;
+	double	y;
+	double	z;
+}	t_vec3;
 
 #endif
