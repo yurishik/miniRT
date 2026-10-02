@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 14:38:45 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 15:26:04 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/02 17:08:34 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	validate_ambient(char **tokens)
 /**
  * @brief Camera: C <x,y,z> <nx,ny,nz> <fov> (4 tokens)
  * nx,ny,nz: [-1.0, 1.0], not zero vector
- * fov: [0, 180] (or (0, 180] depending on subject spec)
+ * fov: [0, 180] (but actually (0, 180))
  */
 int	validate_camera(char **tokens)
 {
@@ -66,6 +66,10 @@ int	validate_camera(char **tokens)
 	fov = ft_atof(tokens[3]);
 	if (fov < 0.0 || fov > 180.0)
 		return (print_error("Camera: FOV out of range [0, 180]"));
+	if (fov <= EPSILON)
+		return (print_error("Camera: FOV cannot be 0 (division by zero)"));
+	if (fov >= 180.0 - EPSILON)
+		return (print_error("Camera: FOV cannot be 180 (infinite viewport)"));
 	return (NO_ERROR);
 }
 
