@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 19:40:05 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/01 14:08:20 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/04 15:52:10 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,15 @@ t_vec3	vec_clamp(t_vec3 v, double min, double max)
 		res.x = min;
 	else if (res.x > max)
 		res.x = max;
-
 	res.y = v.y;
 	if (res.y < min)
 		res.y = min;
 	else if (res.y > max)
 		res.y = max;
-
 	res.z = v.z;
 	if (res.z < min)
 		res.z = min;
 	else if (res.z > max)
 		res.z = max;
-
 	return (res);
 }

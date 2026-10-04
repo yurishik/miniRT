@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 19:40:55 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/01 14:08:25 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/04 15:18:05 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,9 @@ t_vec3	vec_cross(t_vec3 v1, t_vec3 v2);
 double	vec_length_squared(t_vec3 v);
 double	vec_length(t_vec3 v);
 t_vec3	vec_normalize(t_vec3 v);
+
+// vec_color.c
+t_vec3	color_to_vec(t_color c);
+t_color	vec_to_color(t_vec3 v);
 
 #endif

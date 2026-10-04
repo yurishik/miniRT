@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 15:24:35 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/01 13:58:07 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/04 18:00:00 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void	render(t_vars *vars)
 		x = 0;
 		while (x < WIDTH)
 		{
-			ray = create_camera_ray(x, y, &(vars->cam));
-			color = ray_color(ray, vars);
+			ray = create_camera_ray(x, y, &(vars->scene).camera);
+			color = ray_color(ray, &(vars->scene));
 			my_mlx_pixel_put(&(vars->img), x, y, color_to_int(color));
 			x++;
 		}

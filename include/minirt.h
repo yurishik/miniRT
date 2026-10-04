@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 12:17:30 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/03 12:17:32 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/04 15:41:59 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@
 # include "calc_vector.h"
 # include "mlx_utils.h"
 # include "calc.h"
+# include "scene.h"
+# include "object.h"
+# include "vec3.h"
 
 # define TRUE 		1
 # define FALSE 		0
@@ -53,18 +56,12 @@
 # define MAX_NORM_VEC	 1.0
 
 # define EPSILON	1e-6
+# define M_PI 		3.14159265358979323846
 
-# define WIDTH 800
+# define WIDTH 	800
 # define HEIGHT 600
 
 # define KEY_ESC 65307
-
-typedef struct s_vec3
-{
-	double	x;
-	double	y;
-	double	z;
-}	t_vec3;
 
 typedef struct s_element_counts
 {
@@ -78,37 +75,6 @@ typedef struct s_element_counts
 }	t_element_counts;
 
 // just for test
-typedef struct s_ray
-{
-	t_vec3	origin;
-	t_vec3	dir;
-}	t_ray;
-
-typedef struct s_ambient
-{
-	double	ratio;
-	t_vec3	color;
-}	t_ambient;
-
-typedef struct s_camera
-{
-	t_vec3	pos;
-	t_vec3	dir;
-	double	viewport_width; // will be changed to fov
-}	t_camera;
-
-typedef struct s_light
-{
-	t_vec3	pos;
-	double	brightness;
-}	t_light;
-
-typedef struct s_sphere
-{
-	t_vec3	center;
-	double	radius;
-	t_vec3	color;
-}	t_sphere;
 
 typedef struct s_vars
 {
@@ -119,6 +85,7 @@ typedef struct s_vars
 	t_camera	cam;
 	t_sphere	sp;
 	t_light		light;
+	t_scene		scene; // 一旦なんとかするために追加
 }	t_vars;
 
 #endif

@@ -24,14 +24,19 @@ PARSER_FILES := parser/check_args.c \
                 parser/validate_lines.c \
                 parser/validate_format.c \
                 parser/validate_a_c_l.c \
-                parser/validate_sp_pl_cy.c
+                parser/validate_sp_pl_cy.c \
+                parser/set_utils.c \
+                parser/set_a_c_l.c \
+                parser/set_sp_pl_cy.c
 
-CALC_FILES := calc/ray.c
+CALC_FILES := calc/ray.c \
+                calc/hit.c
 
 CALC_VECTOR_FILES := calc_vector/vec_basic.c \
                         calc_vector/vec_scalar.c \
                         calc_vector/vec_vec.c \
-                        calc_vector/vec_length.c
+                        calc_vector/vec_length.c \
+                        calc_vector/vec_color.c
 
 MLX_UTILS_FILES := mlx_utils/utils.c \
                 mlx_utils/render.c
