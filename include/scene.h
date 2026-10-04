@@ -2,7 +2,7 @@
 # define SCENE_H
 
 # include "vec3.h"
-#include "object.h"
+# include "object.h"
 
 typedef struct s_ray
 {

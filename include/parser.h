@@ -3,17 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 10:03:14 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/02 16:51:51 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/04 15:50:56 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSER_H
 # define PARSER_H
 
-typedef struct s_element_counts	t_element_counts;
+# include "scene.h"
+# include "object.h"
+
+typedef struct s_element_counts		t_element_counts;
 
 // check_args.c
 int		valid_extension(const char *filename, const char *ext);
@@ -34,7 +37,7 @@ char	**read_valid_lines(const char *path);
 int		validate_structure(char **lines, t_element_counts *counts);
 
 // validate_lines.c
-int		validate_lines(char **lines);
+int		validate_lines(char **lines, t_scene *scene);
 
 // validate_format.c
 int		is_valid_double_str(const char *str);
@@ -53,5 +56,20 @@ int		validate_light(char **tokens);
 int		validate_sphere(char **tokens);
 int		validate_plane(char **tokens);
 int		validate_cylinder(char **tokens);
+
+// set_utils.c
+void	obj_add_back(t_object **head, t_object *new_obj);
+void	set_vec3_from_str(char *str, t_vec3 *vec);
+void	set_color_from_str(char *str, t_color *color);
+
+// set_a_c_l.c
+void	set_ambient(char **tokens, t_ambient *ambient);
+void	set_camera(char **tokens, t_camera *camera);
+void	set_light(char **tokens, t_light *light);
+
+// set_sp_pl_cy.c
+int		set_sphere(char **tokens, t_scene *scene);
+int		set_plane(char **tokens, t_scene *scene);
+int		set_cylinder(char **tokens, t_scene *scene);
 
 #endif

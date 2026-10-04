@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/27 10:07:11 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/02 16:04:32 by hisasano         ###   ########.fr       */
+/*   Created: 2026/10/03 12:17:30 by yurishik          #+#    #+#             */
+/*   Updated: 2026/10/04 21:07:45 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,19 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
+# include <math.h>
 
 # include "../libft/libft.h"
+# include "../minilibx-linux/mlx.h"
 # include "get_next_line.h"
 # include "parser.h"
 # include "utils.h"
+# include "calc_vector.h"
+# include "mlx_utils.h"
+# include "calc.h"
+# include "scene.h"
+# include "object.h"
+# include "vec3.h"
 
 # define TRUE 		1
 # define FALSE 		0
@@ -47,6 +55,14 @@
 # define MIN_NORM_VEC   -1.0
 # define MAX_NORM_VEC	 1.0
 
+# define EPSILON	1e-6
+# define M_PI 		3.14159265358979323846
+
+# define WIDTH 	800
+# define HEIGHT 600
+
+# define KEY_ESC 65307
+
 typedef struct s_element_counts
 {
 	int	ambient_count;
@@ -57,5 +73,15 @@ typedef struct s_element_counts
 	int	cylinder_count;
 	int	total_objects;
 }	t_element_counts;
+
+// just for test
+
+typedef struct s_vars
+{
+	void		*mlx;
+	void		*win;
+	t_img		img;
+	t_scene		scene; // 一旦なんとかするために追加
+}	t_vars;
 
 #endif

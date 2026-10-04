@@ -6,11 +6,20 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 11:00:26 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 11:53:56 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/09/27 19:23:25 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+
+/**
+ * @brief なにもしない(ft_lstclearに引き渡す用)
+ *
+ */
+static void	do_nothing(void *content)
+{
+	(void)content;
+}
 
 /**
  * @brief 行を連結リストに追加する
@@ -59,7 +68,7 @@ static char	**convert_list_to_array(t_list **line_list)
 		cur = cur->next;
 	}
 	lines[i] = NULL;
-	ft_lstclear(line_list, NULL);
+	ft_lstclear(line_list, do_nothing);
 	return (lines);
 }
 
