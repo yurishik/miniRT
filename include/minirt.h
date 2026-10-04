@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 12:17:30 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/04 15:41:59 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/04 21:07:45 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,6 @@ typedef struct s_vars
 	void		*mlx;
 	void		*win;
 	t_img		img;
-	t_ambient	ambient;
-	t_camera	cam;
-	t_sphere	sp;
-	t_light		light;
 	t_scene		scene; // 一旦なんとかするために追加
 }	t_vars;
 
