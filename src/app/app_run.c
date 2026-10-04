@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 23:22:47 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/02 23:25:05 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/04 14:23:06 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,6 @@ int	app_run(const char *filename)
 
 	return (0);
 }
-
-
-
-
-
-
 
 // Scene
 // Image

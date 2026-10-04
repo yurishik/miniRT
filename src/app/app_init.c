@@ -1,41 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   image.h                                            :+:      :+:    :+:   */
+/*   app_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/30 23:10:22 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/03 13:57:06 by hisasano         ###   ########.fr       */
+/*   Created: 2026/10/04 14:24:16 by hisasano          #+#    #+#             */
+/*   Updated: 2026/10/04 14:37:34 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMAGE_H
-# define IMAGE_H
+#include "app.h"
 
-typedef struct s_image
+void    app_init(t_app *app)
 {
-	int		width;
-	int		height;
-	int		*pixels;
-}	t_image;
-
-void	image_set_pixel(t_image *image, int x, int y, int color);
-
-#endif
-
-
-// image_set_pixel
-// (0,0) (1,0) (2,0) (3,0)
-// (0,1) (1,1) (2,1) (3,1)
-
-// メモリ
-
-// pixels[0]
-// pixels[1]
-// pixels[2]
-// pixels[3]
-// pixels[4]
-// pixels[5]
-// pixels[6]  ← (2,1)
-// pixels[7]
+    app->scene.objects = NULL;
+	app->image.width = 0;
+	app->image.height = 0;
+	app->image.pixels = NULL;
+	app->platform.mlx = NULL;
+	app->platform.win = NULL;
+}
