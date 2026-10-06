@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   app.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 14:32:11 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/05 21:44:37 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/06 20:13:09 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 typedef struct s_app
 {
-	t_scene	scene;
+	t_scene		scene;
 	t_image		image;
 	t_platform	platform;
 }	t_app;

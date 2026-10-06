@@ -241,3 +241,84 @@ re:
 # re: fclean all
 
 # .PHONY: all clean fclean re
+
+SHELL := /bin/bash
+TARGET := ./miniRT
+
+define TEST_CASES
+rt_files/no_ambient.rt:           Invalid number of A
+rt_files/no_camera.rt:            Invalid number of C
+rt_files/no_light.rt:             Invalid number of L
+rt_files/multi_ambient.rt:        Invalid number of A
+rt_files/multi_camera.rt:         Invalid number of C
+rt_files/multi_light.rt:          Invalid number of L
+rt_files/unknown_identifier.rt:   Failed to read file
+rt_files/lowercase_identifier.rt: Failed to read file
+rt_files/extra_element.rt:        Ambient: Invalid argument count
+rt_files/missing_element.rt:      Ambient: Invalid argument count
+rt_files/char_in_float.rt:        Failed to read file
+rt_files/double_dot.rt:           Camera: Invalid position coordinates
+rt_files/hanging_dot.rt:          Camera: Invalid position coordinates
+rt_files/sign_only.rt:            Camera: Invalid position coordinates
+rt_files/multiple_signs.rt:       Camera: Invalid position coordinates
+rt_files/numeric_overflow.rt:     Camera: Invalid position coordinates
+rt_files/space_around_comma.rt:   Camera: Invalid argument count
+rt_files/missing_comma.rt:        Camera: Invalid argument count
+rt_files/extra_comma.rt:          Camera: Invalid position coordinates
+rt_files/only_two_coords.rt:      Camera: Invalid position coordinates
+rt_files/four_coords.rt:          Camera: Invalid position coordinates
+rt_files/rgb_negative.rt:         Ambient: Invalid RGB format
+rt_files/rgb_over_max.rt:         Ambient: Invalid RGB format
+rt_files/rgb_float.rt:            Ambient: Invalid RGB format
+rt_files/ambient_ratio_neg.rt:    Ratio out of range
+rt_files/ambient_ratio_over.rt:   Ratio out of range
+rt_files/light_brightness_neg.rt: Brightness out of range
+rt_files/light_brightness_over.rt:Brightness out of range
+rt_files/fov_negative.rt:         Camera: FOV out of range [0, 180]
+rt_files/fov_zero.rt:             Camera: FOV cannot be 0 (division by zero)
+rt_files/fov_over_180.rt:         Camera: FOV out of range [0, 180]
+rt_files/fov_float.rt:            Camera: FOV must be a valid number
+rt_files/norm_vector_zero.rt:     Camera: Invalid orientation vector
+rt_files/norm_out_of_range.rt:    Camera: Invalid orientation vector
+rt_files/pl_norm_zero.rt:         Plane: Invalid normal vector
+rt_files/sp_diameter_neg.rt:      Sphere: Diameter must be greater than 0
+rt_files/sp_diameter_zero.rt:     Sphere: Diameter must be greater than 0
+rt_files/cy_diameter_neg.rt:      Cylinder: Invalid value (must be positive)
+rt_files/cy_height_neg.rt:        Cylinder: Invalid value (must be positive)
+rt_files/cy_height_zero.rt:       Cylinder: Invalid value (must be positive)
+rt_files/empty_file.rt:           Failed to read file
+rt_files/empty_lines_only.rt:     Failed to read file
+rt_files/no_permission.rt:        Failed to read file
+endef
+export TEST_CASES
+
+.PHONY: test
+
+test:
+	@FAILED=0; \
+	PASSED=0; \
+	TOTAL=0; \
+	while IFS=: read -r file expected; do \
+		[ -z "$$file" ] && continue; \
+		expected=$$(echo "$$expected" | sed -e 's/^[[:space:]]*//'); \
+		TOTAL=$$((TOTAL + 1)); \
+		output=$$($(TARGET) "$$file" 2>&1); \
+		\
+		has_detail=$$(echo "$$output" | grep -Fiq "$$expected" && echo 1 || echo 0); \
+		first_line=$$(echo "$$output" | head -n 1 | tr -d '\r'); \
+		is_error_prefix=0; \
+		if [ "$$first_line" = "Error" ]; then is_error_prefix=1; fi; \
+		\
+		if [ "$$has_detail" -eq 1 ] && [ "$$is_error_prefix" -eq 1 ]; then \
+			printf "\033[0;32m[PASS]\033[0m %s\n" "$$file"; \
+			PASSED=$$((PASSED + 1)); \
+		else \
+			printf "\033[0;31m[FAIL]\033[0m %s\n" "$$file"; \
+			[ "$$is_error_prefix" -eq 0 ] && echo "  (Missing 'Error' on first line)"; \
+			printf "  Expected detail: %s\n" "$$expected"; \
+			printf "  Got:\n%s\n" "$$output"; \
+			FAILED=$$((FAILED + 1)); \
+		fi; \
+	done <<< "$$TEST_CASES"; \
+	printf "\nResult: %d/%d passed.\n" "$$PASSED" "$$TOTAL"; \
+	if [ $$FAILED -ne 0 ]; then exit 1; fi
