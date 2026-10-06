@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   object.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 00:20:25 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/04 16:15:31 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/05 22:00:47 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,9 @@ typedef struct s_object
 	t_shape			shape;
 	struct s_object	*next;
 }	t_object;
+
+t_vec3	color_to_vec(t_color color);
+t_color	vec_to_color(t_vec3 vector);
 
 #endif
 

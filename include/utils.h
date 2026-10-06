@@ -3,15 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   utils.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 11:14:12 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/04 17:58:56 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/05 22:12:00 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
+
+# include "scene.h"
 
 typedef struct s_element_counts	t_element_counts;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 10:03:14 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/04 15:50:56 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/06 17:38:37 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 # include "scene.h"
 # include "object.h"
+
+#include <stddef.h>
 
 typedef struct s_element_counts		t_element_counts;
 
@@ -71,5 +73,8 @@ void	set_light(char **tokens, t_light *light);
 int		set_sphere(char **tokens, t_scene *scene);
 int		set_plane(char **tokens, t_scene *scene);
 int		set_cylinder(char **tokens, t_scene *scene);
+
+//
+int		parse_scene(t_scene *scene, const char *filename);
 
 #endif

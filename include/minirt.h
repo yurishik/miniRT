@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minirt.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 12:17:30 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/04 21:07:45 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/05 21:58:04 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,27 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
-# include <math.h>
-
 # include "../libft/libft.h"
-# include "../minilibx-linux/mlx.h"
 # include "get_next_line.h"
 # include "parser.h"
 # include "utils.h"
-# include "calc_vector.h"
-# include "mlx_utils.h"
-# include "calc.h"
-# include "scene.h"
-# include "object.h"
-# include "vec3.h"
+
+// # include <unistd.h>
+// # include <fcntl.h>
+// # include <stdlib.h>
+// # include <math.h>
+
+// # include "../libft/libft.h"
+// # include "../minilibx-linux/mlx.h"
+// # include "get_next_line.h"
+// # include "parser.h"
+// # include "utils.h"
+// # include "calc_vector.h"
+// # include "mlx_utils.h"
+// # include "calc.h"
+// # include "scene.h"
+// # include "object.h"
+// # include "vec3.h"
 
 # define TRUE 		1
 # define FALSE 		0
@@ -76,12 +84,12 @@ typedef struct s_element_counts
 
 // just for test
 
-typedef struct s_vars
-{
-	void		*mlx;
-	void		*win;
-	t_img		img;
-	t_scene		scene; // 一旦なんとかするために追加
-}	t_vars;
+// typedef struct s_vars
+// {
+// 	void		*mlx;
+// 	void		*win;
+// 	t_img		img;
+// 	t_scene		scene; // 一旦なんとかするために追加
+// }	t_vars;
 
 #endif

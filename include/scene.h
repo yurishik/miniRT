@@ -1,7 +1,6 @@
 #ifndef SCENE_H
 # define SCENE_H
 
-# include "vec3.h"
 # include "object.h"
 
 typedef struct s_ray

@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   vec_length.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 20:07:16 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 20:28:22 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/06 17:53:24 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
+#include <math.h>
 
 /**
  * @brief ベクトルの長さの２乗を返す
