@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 15:24:35 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/05 22:21:39 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/09 12:49:14 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 #include "render.h"
-
 
 /**
  * @brief 各ピクセルで計算して描画用のデータを作成する

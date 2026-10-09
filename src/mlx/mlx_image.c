@@ -5,9 +5,6 @@
  * @brief so_longから、画面描画用のデータを作成する
  *
  */
-
-
-
 static void	mlx_set_pixel(t_mlx_image *image, int x, int y, int color)
 {
 	char	*destination;

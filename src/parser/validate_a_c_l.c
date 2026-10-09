@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 14:38:45 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/02 17:08:34 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/09 13:07:45 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,17 @@ int	validate_camera(char **tokens)
 	if (count_tokens(tokens) != 4)
 		return (print_error("Camera: Invalid argument count (expected 4)"));
 	if (!is_valid_vector_format(tokens[1]))
-		return (print_error("Camera: Invalid position coordinates"));
+		return (print_error("Camera: Invalid viewpoint coordinates"));
 	if (!is_valid_orientation_format(tokens[2]))
 		return (print_error("Camera: Invalid orientation vector"));
-	if (!is_valid_double_str(tokens[3]))
+	if (!is_valid_int_str(tokens[3]))
 		return (print_error("Camera: FOV must be a valid number"));
-	fov = ft_atof(tokens[3]);
-	if (fov < 0.0 || fov > 180.0)
+	fov = ft_atoi(tokens[3]);
+	if (fov < 0 || fov > 180)
 		return (print_error("Camera: FOV out of range [0, 180]"));
-	if (fov <= EPSILON)
+	if (fov == 0)
 		return (print_error("Camera: FOV cannot be 0 (division by zero)"));
-	if (fov >= 180.0 - EPSILON)
+	if (fov == 180)
 		return (print_error("Camera: FOV cannot be 180 (infinite viewport)"));
 	return (NO_ERROR);
 }

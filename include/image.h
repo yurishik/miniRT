@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 23:10:22 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/07 17:28:55 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/09 17:17:08 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	image_destroy(t_image *image);
 void	image_set_pixel(t_image *image, int x, int y, int color);
 
 #endif
-
 
 // image_set_pixel
 // (0,0) (1,0) (2,0) (3,0)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 23:23:43 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/05 22:53:07 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/09 12:53:46 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 
 int	main(int ac, char **av)
 {
-    if (check_args(ac, av) != NO_ERROR)
-        return (1);
-
-    return (app_run(av[1]));
+	if (check_args(ac, av) != NO_ERROR)
+		return (1);
+	return (app_run(av[1]));
 }
