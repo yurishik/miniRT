@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 14:38:45 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/06 21:03:36 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/09 13:07:45 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	validate_camera(char **tokens)
 	if (count_tokens(tokens) != 4)
 		return (print_error("Camera: Invalid argument count (expected 4)"));
 	if (!is_valid_vector_format(tokens[1]))
-		return (print_error("Camera: Invalid position coordinates"));
+		return (print_error("Camera: Invalid viewpoint coordinates"));
 	if (!is_valid_orientation_format(tokens[2]))
 		return (print_error("Camera: Invalid orientation vector"));
 	if (!is_valid_int_str(tokens[3]))

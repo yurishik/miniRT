@@ -246,49 +246,113 @@ SHELL := /bin/bash
 TARGET := ./miniRT
 
 define TEST_CASES
-rt_files/no_ambient.rt:           Invalid number of A
-rt_files/no_camera.rt:            Invalid number of C
-rt_files/no_light.rt:             Invalid number of L
-rt_files/multi_ambient.rt:        Invalid number of A
-rt_files/multi_camera.rt:         Invalid number of C
-rt_files/multi_light.rt:          Invalid number of L
-rt_files/unknown_identifier.rt:   Failed to read file
-rt_files/lowercase_identifier.rt: Failed to read file
-rt_files/extra_element.rt:        Ambient: Invalid argument count
-rt_files/missing_element.rt:      Ambient: Invalid argument count
-rt_files/char_in_float.rt:        Failed to read file
-rt_files/double_dot.rt:           Camera: Invalid position coordinates
-rt_files/hanging_dot.rt:          Camera: Invalid position coordinates
-rt_files/sign_only.rt:            Camera: Invalid position coordinates
-rt_files/multiple_signs.rt:       Camera: Invalid position coordinates
-rt_files/numeric_overflow.rt:     Camera: Invalid position coordinates
-rt_files/space_around_comma.rt:   Camera: Invalid argument count
-rt_files/missing_comma.rt:        Camera: Invalid argument count
-rt_files/extra_comma.rt:          Camera: Invalid position coordinates
-rt_files/only_two_coords.rt:      Camera: Invalid position coordinates
-rt_files/four_coords.rt:          Camera: Invalid position coordinates
-rt_files/rgb_negative.rt:         Ambient: Invalid RGB format
-rt_files/rgb_over_max.rt:         Ambient: Invalid RGB format
-rt_files/rgb_float.rt:            Ambient: Invalid RGB format
-rt_files/ambient_ratio_neg.rt:    Ratio out of range
-rt_files/ambient_ratio_over.rt:   Ratio out of range
-rt_files/light_brightness_neg.rt: Brightness out of range
-rt_files/light_brightness_over.rt:Brightness out of range
-rt_files/fov_negative.rt:         Camera: FOV out of range [0, 180]
-rt_files/fov_zero.rt:             Camera: FOV cannot be 0 (division by zero)
-rt_files/fov_over_180.rt:         Camera: FOV out of range [0, 180]
-rt_files/fov_float.rt:            Camera: FOV must be a valid number
-rt_files/norm_vector_zero.rt:     Camera: Invalid orientation vector
-rt_files/norm_out_of_range.rt:    Camera: Invalid orientation vector
-rt_files/pl_norm_zero.rt:         Plane: Invalid normal vector
-rt_files/sp_diameter_neg.rt:      Sphere: Diameter must be greater than 0
-rt_files/sp_diameter_zero.rt:     Sphere: Diameter must be greater than 0
-rt_files/cy_diameter_neg.rt:      Cylinder: Invalid value (must be positive)
-rt_files/cy_height_neg.rt:        Cylinder: Invalid value (must be positive)
-rt_files/cy_height_zero.rt:       Cylinder: Invalid value (must be positive)
-rt_files/empty_file.rt:           Failed to read file
-rt_files/empty_lines_only.rt:     Failed to read file
-rt_files/no_permission.rt:        Failed to read file
+# ==============================================================================
+# VALID CASES (正常系 / レンダリングを通すべきファイル)
+# ==============================================================================
+# rt_files/sample.rt                  : 基本的な構成要素（A, C, L, 各オブジェクト）を含む標準シーン
+# rt_files/one_sphere.rt              : 最小構成のオブジェクト（球1つのみ）を含むシーン
+# rt_files/no_objects.rt              : オブジェクトなし（A, C, L のみで背景色描画を許容）
+# rt_files/interleaved_empty_lines.rt : 定義行の間に挟まれた連続空行をスキップして処理可能
+# rt_files/leading_trailing_spaces.rt : 行頭・行末の余分なスペースをトリムして処理可能
+# rt_files/no_newline_eof.rt          : ファイル末尾（EOF直前）に改行がなくても正常にパース可能
+# rt_files/crlf_endings.rt            : Windows形式の改行コード (\r\n) を許容
+# rt_files/tab_separated.rt           : スペースの代わりに水平タブ (\t) 区切りを許容
+# rt_files/explicit_plus_sign.rt      : 明示的な正の符号（+0.0, +255 など）が付いた数値を許容
+# rt_files/norm_not_normalized.rt     : 各成分[-1,1]の非単位ベクトル（ゼロベクトル以外）をプログラム側で自動正規化して描画
+# ==============================================================================
+# INVALID CASES: 要素数 (A, C, L の過不足)
+# ==============================================================================
+rt_files/no_ambient.rt:              Invalid number of A
+rt_files/no_camera.rt:               Invalid number of C
+rt_files/no_light.rt:                Invalid number of L
+rt_files/multi_ambient.rt:           Invalid number of A
+rt_files/multi_camera.rt:            Invalid number of C
+rt_files/multi_light.rt:             Invalid number of L
+
+# ==============================================================================
+# INVALID CASES: 識別子・引数の個数
+# ==============================================================================
+rt_files/unknown_identifier.rt:      Failed to read file
+rt_files/lowercase_identifier.rt:    Failed to read file
+rt_files/extra_element.rt:           Ambient: Invalid argument count
+rt_files/missing_element.rt:         Ambient: Invalid argument count
+
+# ==============================================================================
+# INVALID CASES: 数値・カンマフォーマット
+# ==============================================================================
+rt_files/char_in_float.rt:           Failed to read file
+rt_files/double_dot.rt:              Camera: Invalid viewpoint coordinates
+rt_files/hanging_dot.rt:             Camera: Invalid viewpoint coordinates
+rt_files/dot_only.rt:                Sphere: Invalid center coordinates
+rt_files/sign_only.rt:               Camera: Invalid viewpoint coordinates
+rt_files/multiple_signs.rt:          Camera: Invalid viewpoint coordinates
+rt_files/scientific_notation.rt:     Failed to read file
+rt_files/numeric_overflow.rt:        Camera: Invalid viewpoint coordinates
+rt_files/huge_fractional_digits.rt:  Camera: Invalid viewpoint coordinates
+rt_files/space_around_comma.rt:      Camera: Invalid argument count
+rt_files/comma_inner_spaces.rt:      Sphere: Invalid argument count
+rt_files/missing_comma.rt:           Camera: Invalid argument count
+rt_files/extra_comma.rt:             Camera: Invalid viewpoint coordinates
+rt_files/comma_leading_trailing.rt:  Sphere: Invalid center coordinates
+rt_files/consecutive_commas.rt:      Sphere: Invalid center coordinates
+rt_files/only_two_coords.rt:         Camera: Invalid viewpoint coordinates
+rt_files/four_coords.rt:             Camera: Invalid viewpoint coordinates
+
+# ==============================================================================
+# INVALID CASES: 色 (RGB)
+# ==============================================================================
+rt_files/rgb_negative.rt:            Ambient: Invalid RGB format
+rt_files/rgb_over_max.rt:            Ambient: Invalid RGB format
+rt_files/rgb_float.rt:               Ambient: Invalid RGB format
+
+# ==============================================================================
+# INVALID CASES: 比率・明るさ・FOV
+# ==============================================================================
+rt_files/ambient_ratio_neg.rt:       Ratio out of range
+rt_files/ambient_ratio_over.rt:      Ratio out of range
+rt_files/light_brightness_neg.rt:    Brightness out of range
+rt_files/light_brightness_over.rt:   Brightness out of range
+rt_files/fov_negative.rt:            Camera: FOV out of range [0, 180]
+rt_files/fov_zero.rt:                Camera: FOV cannot be 0 (division by zero)
+rt_files/fov_exact_0.rt:             Camera: FOV cannot be 0 (division by zero)
+rt_files/fov_over_180.rt:            Camera: FOV out of range [0, 180]
+rt_files/fov_exact_180.rt:           Camera: FOV cannot be 180 (infinite viewport)
+rt_files/fov_float.rt:               Camera: FOV must be a valid number
+
+# ==============================================================================
+# INVALID CASES: 方向・法線ベクトル
+# ==============================================================================
+rt_files/norm_vector_zero.rt:        Camera: Invalid orientation vector
+rt_files/norm_out_of_range.rt:       Camera: Invalid orientation vector
+rt_files/cam_norm_zero.rt:           Camera: Invalid orientation vector
+rt_files/pl_norm_zero.rt:            Plane: Invalid normal vector
+rt_files/cy_norm_zero.rt:            Cylinder: Invalid axis normal vector
+
+# ==============================================================================
+# INVALID CASES: 形状寸法 (直径・高さ)
+# ==============================================================================
+rt_files/sp_diameter_neg.rt:         Sphere: Diameter must be greater than 0
+rt_files/sp_diameter_zero.rt:        Sphere: Diameter must be greater than 0
+rt_files/cy_diameter_neg.rt:         Cylinder: Invalid value (must be positive)
+rt_files/cy_diameter_zero.rt:        Cylinder: Invalid value (must be positive)
+rt_files/cy_height_neg.rt:           Cylinder: Invalid value (must be positive)
+rt_files/cy_height_zero.rt:          Cylinder: Invalid value (must be positive)
+
+# ==============================================================================
+# INVALID CASES: ファイル・システム・読み込み
+# ==============================================================================
+rt_files/mixed_whitespace.rt:        Failed to read file
+rt_files/empty_file.rt:              Failed to read file
+rt_files/empty_lines_only.rt:        Failed to read file
+rt_files/extremely_long_line.rt:     Failed to read file
+rt_files/no_permission.rt:           Failed to read file
+rt_files/is_a_directory.rt:          Failed to read file
+rt_files/non_existent.rt:            Failed to read file
+rt_files/no_extension:               Invalid file extension
+rt_files/.rt:                        Invalid file extension
+rt_files/scene.RT:                   Invalid file extension
+rt_files/scene.rt.txt:               Invalid file extension
+rt_files/scene.rt_:                  Invalid file extension
 endef
 export TEST_CASES
 
@@ -299,7 +363,9 @@ test:
 	PASSED=0; \
 	TOTAL=0; \
 	while IFS=: read -r file expected; do \
+		file=$$(echo "$$file" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$$//'); \
 		[ -z "$$file" ] && continue; \
+		case "$$file" in \#*) continue ;; esac; \
 		expected=$$(echo "$$expected" | sed -e 's/^[[:space:]]*//'); \
 		TOTAL=$$((TOTAL + 1)); \
 		output=$$($(TARGET) "$$file" 2>&1); \
