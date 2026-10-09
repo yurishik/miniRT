@@ -4,8 +4,6 @@
 
 #include <math.h>
 
-
-
 t_ray	create_camera_ray(int x, int y, const t_camera *cam)
 {
 	t_ray	ray;

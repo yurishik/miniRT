@@ -7,8 +7,7 @@
  * @brief 描画バッファをウィンドウに転送し、イベントループを開始する
  * 
  */
-
- static int	close_app(t_app *app)
+static int	close_app(t_app *app)
 {
 	app_cleanup(app);
 	exit(0);
