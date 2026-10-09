@@ -37,6 +37,13 @@ t_vec3	compute_lighting(const t_scene *scene, const t_hit *hit)
 	t_vec3	diffuse_color;
 
 	ambient_color = calc_ambient_color(hit->color, &scene->ambient);
+	/* TODO: Hard Shadow
+	 * hit->point から light.position へ shadow ray を飛ばす。
+	 * light までの間に別objectとの交点があれば影と判断し、
+	 * diffuse_color を加算しない。
+	 *
+	 * find_nearest_hit() を再利用する想定。
+	 */
 	diffuse_color = calc_diffuse_color(hit, &scene->light);
 	return (vec_clamp(vec_add(ambient_color, diffuse_color), 0.0, 1.0));
 }

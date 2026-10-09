@@ -1,10 +1,6 @@
 #include "render.h"
-
 #include "minirt.h"
-
 #include <math.h>
-
-
 
 t_ray	create_camera_ray(int x, int y, const t_camera *cam)
 {
@@ -19,6 +15,13 @@ t_ray	create_camera_ray(int x, int y, const t_camera *cam)
 	screen_x = (((double)x / WIDTH) - 0.5) * viewport_width;
 	screen_y = (0.5 - ((double)y / HEIGHT)) * viewport_height;
 	ray.origin = cam->position;
+
+	/* TODO: Camera orientation
+	 * 現在はカメラが (0, 0, 1) を向いている前提。
+	 * cam->direction から forward / right / up を作り、
+	 * screen_x / screen_y をワールド座標系のray方向へ変換する。
+	 */
+
 	ray.direction = vec_normalize(vec_new(screen_x, screen_y, 1.0));
 	return (ray);
 }

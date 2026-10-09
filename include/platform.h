@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 23:03:44 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/06 17:42:22 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/07 18:59:37 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,14 @@ typedef struct s_mlx_image
 	int		endian;
 } t_mlx_image;
 
+// image.ptr = mlx_new_image(mlx, WIDTH, HEIGHT);
+// image.addr = mlx_get_data_addr(
+//     image.ptr,
+//     &image.bits_per_pixel,
+//     &image.line_length,
+//     &image.endian
+// );
+
 typedef struct s_platform
 {
 	void		*mlx;
@@ -39,6 +47,21 @@ void	platform_present(t_platform *platform, const t_image *image);
 int		platform_start_loop(struct s_app *app);
 
 #endif
+
+// t_platform
+// │
+// ├── mlx
+// │    └─ MiniLibX
+// │
+// ├── window
+// │    └─ wondow
+// │
+// └── image
+//      ├─ ptr
+//      ├─ addr
+//      ├─ bits_per_pixel
+//      ├─ line_length
+//      └─ endian
 
 // platform_init()
 //     ↓

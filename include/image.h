@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 23:10:22 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/05 22:03:07 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/07 17:28:55 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,3 +41,5 @@ void	image_set_pixel(t_image *image, int x, int y, int color);
 // pixels[5]
 // pixels[6]  ← (2,1)
 // pixels[7]
+
+// pixels[y * width + x]

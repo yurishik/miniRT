@@ -4,6 +4,16 @@ static int	intersect_object(t_ray ray, const t_object *object, t_hit *hit)
 {
 	if (object->type == OBJ_SPHERE)
 		return (hit_sphere(ray, &object->shape.sphere, hit));
+	
+	/* TODO: Plane intersection
+	 * ray と plane の交差判定を行い、
+	 * hit->t / hit->point / hit->normal を設定する。
+	 */
+
+	/* TODO: Cylinder intersection
+	 * ray と有限円柱の交差判定を行い、
+	 * 側面・上面・下面を含めて最も近い交点を設定する。
+	 */
 	return (0);
 }
 
