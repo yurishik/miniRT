@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 13:29:01 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/10 12:25:01 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/10 13:01:05 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	calc_camera_right_up(t_camera *cam)
 
 	cam->direction = vec_normalize(cam->direction);
 	world_up = vec_new(0, 1, 0);
-	cam->right = vec_cross(world_up, cam->direction);
+	cam->right = vec_cross(cam->direction, world_up);
 	if (vec_length_squared(cam->right) < EPSILON)
 	{
 		world_up = vec_new(0, 0, 1);
