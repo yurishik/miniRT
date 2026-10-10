@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 20:14:23 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/06 20:14:27 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/10 11:57:40 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct s_camera
 {
 	t_vec3	position;
 	t_vec3	direction;
+	t_vec3	right;
+	t_vec3	up;
 	double	fov;
 }	t_camera;
 // C -50,0,20   0,0,1   70

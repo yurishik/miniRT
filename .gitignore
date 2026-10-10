@@ -1,5 +1,6 @@
 *.o
-libft.a
+*.a
 minirt
+miniRT
 .DS_Store
 *.a

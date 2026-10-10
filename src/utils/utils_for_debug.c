@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 12:46:20 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/04 17:58:45 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/10 12:45:28 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,6 +136,8 @@ void	print_scene_for_debug(t_scene *scene)
 	printf("--- Camera (C) ---\n");
 	print_vec3("position", scene->camera.position);
 	print_vec3("direction", scene->camera.direction);
+	print_vec3("right (basis)", scene->camera.right);
+	print_vec3("up (basis)", scene->camera.up);
 	printf("    fov: %.2f\n", scene->camera.fov);
 	printf("--- Light (L) ---\n");
 	print_vec3("position", scene->light.position);
