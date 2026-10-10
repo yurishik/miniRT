@@ -60,11 +60,12 @@ MATH_FILES := \
 	calc_vector/vec_color.c \
 	calc_vector/vec_length.c \
 	calc_vector/vec_scalar.c \
-	calc_vector/vec_vec.c
+	calc_vector/vec_vec.c 
 
 OBJECT_FILES := \
 	object/object.c \
-	object/sphere.c
+	object/sphere.c \
+	object/plane.c
 
 RENDER_FILES := \
 	render/camera_ray.c \

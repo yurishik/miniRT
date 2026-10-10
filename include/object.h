@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 00:20:25 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/05 22:00:47 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/09 20:38:54 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_plane
 // pl 0,0,0 0,1,0 255,0,225
 //    ↓      ↓       ↓
 //  point   normal   color
+//plane->normal = direction of the plane = normal vector
 
 typedef struct s_cylinder
 {

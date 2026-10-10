@@ -1,14 +1,25 @@
-#include "render.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   object.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/09 17:49:56 by hisasano          #+#    #+#             */
+/*   Updated: 2026/10/09 18:44:38 by hisasano         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-static int	intersect_object(t_ray ray, const t_object *object, t_hit *hit)
+#include "render.h"
+#include "minirt.h"
+#include <math.h>
+
+static int hit_object(t_ray ray, const t_object *obj, t_hit *hit)
 {
-	if (object->type == OBJ_SPHERE)
-		return (hit_sphere(ray, &object->shape.sphere, hit));
-	
-	/* TODO: Plane intersection
-	 * ray と plane の交差判定を行い、
-	 * hit->t / hit->point / hit->normal を設定する。
-	 */
+    if (obj->type == OBJ_SPHERE)
+        return (hit_sphere(ray, &obj->shape.sphere, hit));
+    if (obj->type == OBJ_PLANE)
+        return (hit_plane(ray, &obj->shape.plane, hit));
 
 	/* TODO: Cylinder intersection
 	 * ray と有限円柱の交差判定を行い、
@@ -19,25 +30,25 @@ static int	intersect_object(t_ray ray, const t_object *object, t_hit *hit)
 
 int	find_nearest_hit(const t_scene *scene, t_ray ray, t_hit *hit)
 {
-	t_object	*object;
-	t_hit		candidate;
-	double		closest;
-	int			found;
+    const t_object *obj;
+    t_hit temp;
+    double  closest;
+    int found;
 
-	object = scene->objects;
-	closest = 1.0e30;
-	found = 0;
-	while (object)
-	{
-		if (intersect_object(ray, object, &candidate)
-			&& candidate.t < closest)
-		{
-			closest = candidate.t;
-			*hit = candidate;
-			hit->color = object->color;
-			found = 1;
-		}
-		object = object->next;
-	}
-	return (found);
+    obj = scene->objects;
+    closest = INFINITY;
+    found = 0;
+    while(obj)
+    {
+        if (hit_object(ray, obj, &temp)
+            && temp.t > EPSILON && temp.t < closest)
+        {
+            closest = temp.t;
+            *hit = temp;
+            hit->color = obj->color;
+            found = 1;
+        }
+        obj = obj->next;
+    }
+    return (found);
 }
