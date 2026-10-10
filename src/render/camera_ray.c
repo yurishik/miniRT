@@ -17,7 +17,14 @@ t_ray	create_camera_ray(int x, int y, const t_camera *cam)
 	screen_x = (((double)x / WIDTH) - 0.5) * viewport_width;
 	screen_y = (0.5 - ((double)y / HEIGHT)) * viewport_height;
 	ray.origin = cam->position;
-	ray.direction = vec_normalize(vec_new(screen_x, screen_y, 1.0));
+	ray.direction = vec_normalize(
+			vec_add(
+				vec_add(cam->direction,
+					vec_mult(cam->right, screen_x)
+					),
+				vec_mult(cam->up, screen_y)
+				)
+			);
 	return (ray);
 }
 
