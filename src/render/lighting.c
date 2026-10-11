@@ -1,4 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lighting.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/11 17:00:29 by yurishik          #+#    #+#             */
+/*   Updated: 2026/10/11 17:01:01 by yurishik         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "render.h"
+#include "minirt.h"
 
 static t_vec3	calc_ambient_color(t_color obj_color,
 		const t_ambient *ambient)
@@ -31,19 +44,36 @@ static t_vec3	calc_diffuse_color(const t_hit *hit,
 			vec_mult(c_light, diff * light->brightness)));
 }
 
+int	is_hard_shadow(const t_scene *scene, const t_hit *hit)
+{
+	t_ray	shadow_ray;
+	double	distance;
+	t_vec3	light_dir;
+	t_hit	shadow_hit;
+
+	light_dir = vec_sub(scene->light.position, hit->point);
+	distance = vec_length(light_dir);
+	light_dir = vec_normalize(light_dir);
+	shadow_ray.origin = hit->point;
+	shadow_ray.direction = light_dir;
+	if (find_nearest_hit(scene, shadow_ray, &shadow_hit))
+	{
+		if (shadow_hit.t > EPSILON && shadow_hit.t < distance)
+			return (TRUE);
+	}
+	return (FALSE);
+}
+
 t_vec3	compute_lighting(const t_scene *scene, const t_hit *hit)
 {
 	t_vec3	ambient_color;
 	t_vec3	diffuse_color;
 
 	ambient_color = calc_ambient_color(hit->color, &scene->ambient);
-	/* TODO: Hard Shadow
-	 * hit->point から light.position へ shadow ray を飛ばす。
-	 * light までの間に別objectとの交点があれば影と判断し、
-	 * diffuse_color を加算しない。
-	 *
-	 * find_nearest_hit() を再利用する想定。
-	 */
+	if (is_hard_shadow(scene, hit))
+	{
+		return (ambient_color);
+	}
 	diffuse_color = calc_diffuse_color(hit, &scene->light);
 	return (vec_clamp(vec_add(ambient_color, diffuse_color), 0.0, 1.0));
 }

@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   app.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 14:32:11 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/09 17:19:51 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/11 16:59:00 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef APP_H
 # define APP_H
