@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sphere.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 15:53:42 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/05 22:30:57 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/11 14:36:46 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
  * レイの方向ベクトルが正規化済み (|ray.direction| = 1.0) であることを前提に、
  * 2次方程式の偶数公式 (b = 2h) を用いて割り算を排除し計算を最適化している。
  * 自己交差（シャドウアクネ等）を防止するため、EPSILON 以上の正の解のみを採用する。
+ * 球の内部を見ている場合に法線ベクトルを逆向きとする
  *
  * @param ray 判定対象のレイ
  * @param sp 判定対象の球体データ（中心座標、半径など）
@@ -52,5 +53,8 @@ int	hit_sphere(t_ray ray, const t_sphere *sp, t_hit *hit)
 	hit->t = t;
 	hit->point = vec_add(ray.origin, vec_mult(ray.direction, t));
 	hit->normal = vec_normalize(vec_sub(hit->point, sp->center));
+	if (vec_dot(ray.direction, hit->normal) > 0){
+		hit->normal = vec_mult(hit->normal, -1.0);
+	}
 	return (TRUE);
 }
