@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 12:17:30 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/05 21:58:04 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/11 16:36:12 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,6 @@
 # include "get_next_line.h"
 # include "parser.h"
 # include "utils.h"
-
-// # include <unistd.h>
-// # include <fcntl.h>
-// # include <stdlib.h>
-// # include <math.h>
-
-// # include "../libft/libft.h"
-// # include "../minilibx-linux/mlx.h"
-// # include "get_next_line.h"
-// # include "parser.h"
-// # include "utils.h"
-// # include "calc_vector.h"
-// # include "mlx_utils.h"
-// # include "calc.h"
-// # include "scene.h"
-// # include "object.h"
-// # include "vec3.h"
 
 # define TRUE 		1
 # define FALSE 		0
