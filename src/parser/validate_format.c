@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 13:23:01 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/09 12:53:23 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/11 17:12:38 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,10 @@ int	is_valid_int_str(const char *str)
 /**
  * @brief "x,y,z"のカンマ区切り3要素かつ各値が正しい書式の浮動小数点数か判定する
  */
-int is_valid_vector_format(const char *str)
+int	is_valid_vector_format(const char *str)
 {
-	char **split;
-	int is_valid;
+	char	**split;
+	int		is_valid;
 
 	split = comma_split_elements(str, 3);
 	if (!split)
@@ -100,7 +100,7 @@ int is_valid_vector_format(const char *str)
 /**
  * @brief "r,g,b"のカンマ区切り3要素かつ各値が0-255の整数か判定する
  */
-int is_valid_rgb_format(const char *str)
+int	is_valid_rgb_format(const char *str)
 {
 	char	**split;
 	int		i;
@@ -126,12 +126,12 @@ int is_valid_rgb_format(const char *str)
 /**
  * @brief  3D normalized vectorかどうかを確認する[-1,1]
  */
-int is_valid_orientation_format(const char *str)
+int	is_valid_orientation_format(const char *str)
 {
-	char **split;
-	double x;
-	double y;
-	double z;
+	char	**split;
+	double	x;
+	double	y;
+	double	z;
 
 	split = comma_split_elements(str, 3);
 	if (!split)

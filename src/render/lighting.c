@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lighting.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/11 17:00:29 by yurishik          #+#    #+#             */
+/*   Updated: 2026/10/11 17:01:01 by yurishik         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "render.h"
 #include "minirt.h"
 
@@ -32,7 +44,8 @@ static t_vec3	calc_diffuse_color(const t_hit *hit,
 			vec_mult(c_light, diff * light->brightness)));
 }
 
-int	is_hard_shadow(const t_scene *scene,const t_hit *hit){
+int	is_hard_shadow(const t_scene *scene, const t_hit *hit)
+{
 	t_ray	shadow_ray;
 	double	distance;
 	t_vec3	light_dir;

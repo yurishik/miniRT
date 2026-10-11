@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 15:53:42 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/11 14:44:34 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/11 17:11:04 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ int	hit_sphere(t_ray ray, const t_sphere *sp, t_hit *hit)
 	hit->t = t;
 	hit->point = vec_add(ray.origin, vec_mult(ray.direction, t));
 	hit->normal = vec_normalize(vec_sub(hit->point, sp->center));
-	if (vec_dot(ray.direction, hit->normal) > 0){
+	if (vec_dot(ray.direction, hit->normal) > 0)
+	{
 		hit->normal = vec_mult(hit->normal, -1.0);
 	}
 	return (TRUE);
