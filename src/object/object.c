@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 17:49:56 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/11 17:07:17 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/11 17:39:35 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ static int	hit_object(t_ray ray, const t_object *obj, t_hit *hit)
 	if (obj->type == OBJ_SPHERE)
 		return (hit_sphere(ray, &obj->shape.sphere, hit));
 	if (obj->type == OBJ_PLANE)
+	{
 		return (hit_plane(ray, &obj->shape.plane, hit));
-	/* TODO: Cylinder intersection
-	 * ray と有限円柱の交差判定を行い、
-	 * 側面・上面・下面を含めて最も近い交点を設定する。
-	 */
+	}
+    // if (obj->type == OBJ_CYLINDER)
+    //     return (hit_cylinder(ray, &obj->shape.cylinder, hit));
 	return (0);
 }
 
