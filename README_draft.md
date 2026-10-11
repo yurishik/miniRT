@@ -18,11 +18,19 @@
 
 ## Instructions
 
-### Requirements
+### Requirements (Linux)
+The dependencies below are quoted from the official [MiniLibX repository](https://github.com/42Paris/minilibx-linux):
 
-// TODO
+> - MinilibX only support TrueColor visual type (8,15,16,24 or 32 bits depth)
+> - gcc
+> - make
+> - X11 include files (package xorg)
+> - XShm extension must be present (package libxext-dev)
+> - Utility functions from BSD systems - development files (package libbsd-dev)
+> - e.g. `sudo apt-get install gcc make xorg libxext-dev libbsd-dev` (Debian/Ubuntu)
 
 ### Compilation
+
 To compile the project, run the following command in the root directory:
 
 ```bash
