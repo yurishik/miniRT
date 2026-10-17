@@ -4,3 +4,4 @@ minirt
 miniRT
 .DS_Store
 *.a
+.vscode/

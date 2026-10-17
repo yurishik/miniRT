@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   plane.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 18:29:41 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/11 17:08:08 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/17 22:25:58 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "render.h"
 #include "minirt.h"
+#include "render.h"
 #include <math.h>
 
 int	hit_plane(t_ray ray, const t_plane *plane, t_hit *hit)

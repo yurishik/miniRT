@@ -65,7 +65,11 @@ MATH_FILES := \
 OBJECT_FILES := \
 	object/object.c \
 	object/sphere.c \
-	object/plane.c
+	object/plane.c \
+	object/cylinder.c \
+	object/cylinder_side.c \
+	object/cylinder_caps.c \
+	object/cylinder_normal.c
 
 RENDER_FILES := \
 	render/camera_ray.c \

@@ -1,0 +1,26 @@
+#include "minirt.h"
+#include "render.h"
+#include "cyl.h"
+#include <math.h>
+
+int	hit_cylinder(t_ray ray, const t_cylinder *cy, t_hit *hit)
+{
+	t_vec3		top_center;
+	t_vec3		bottom_center;
+	t_cy_hit	nearest;
+	double		t_side;
+	double		t_top;
+
+	t_side = cyl_side(ray, cy);
+	top_center = vec_add(cy->center, vec_mult(cy->axis, cy->height / 2.0));
+	bottom_center = vec_sub(cy->center, vec_mult(cy->axis, cy->height / 2.0));
+	t_top = cyl_cap(ray, cy, top_center);
+	nearest = cyl_nearest(t_side, t_top, cyl_cap(ray, cy,
+				bottom_center));
+	if (nearest.t < 0.0)
+		return (0);
+	hit->t = nearest.t;
+	hit->point = vec_add(ray.origin, vec_mult(ray.direction, nearest.t));
+	hit->normal = cyl_normal(cy, hit->point, nearest.face);
+	return (1);
+}

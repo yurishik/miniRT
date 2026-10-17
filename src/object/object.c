@@ -6,26 +6,24 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 17:49:56 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/11 17:39:25 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/12 00:08:00 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "render.h"
 #include "minirt.h"
+#include "render.h"
 #include <math.h>
 
 static int	hit_object(t_ray ray, const t_object *obj, t_hit *hit)
 {
-    if (obj->type == OBJ_SPHERE)
-        return (hit_sphere(ray, &obj->shape.sphere, hit));
-    if (obj->type == OBJ_PLANE)
-    {
-        return (hit_plane(ray, &obj->shape.plane, hit));
-    }
-    
-    // if (obj->type == OBJ_CYLINDER)
-    //     return (hit_cylinder(ray, &obj->shape.cylinder, hit));
-
+	if (obj->type == OBJ_SPHERE)
+		return (hit_sphere(ray, &obj->shape.sphere, hit));
+	if (obj->type == OBJ_PLANE)
+	{
+		return (hit_plane(ray, &obj->shape.plane, hit));
+	}
+	if (obj->type == OBJ_CYLINDER)
+		return (hit_cylinder(ray, &obj->shape.cylinder, hit));
 	return (0);
 }
 
