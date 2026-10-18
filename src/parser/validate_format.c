@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_format.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 13:23:01 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/11 17:12:38 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/18 20:04:31 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,14 @@ int	is_valid_double_str(const char *str)
 /**
  * @brief 符号と数字のみの整数文字列か、INT_MIN - INT_MAXの範囲に入っているかを判定する
  */
+
 int	is_valid_int_str(const char *str)
 {
-	int		sign;
-	long	res;
+	int	sign;
 
 	if (!str || !*str)
 		return (FALSE);
+	sign = 1;
 	if (*str == '+' || *str == '-')
 	{
 		if (*str == '-')
@@ -65,18 +66,7 @@ int	is_valid_int_str(const char *str)
 	}
 	if (!*str)
 		return (FALSE);
-	res = 0;
-	while (*str)
-	{
-		if (!ft_isdigit(*str))
-			return (FALSE);
-		if (((sign == 1 && (res > (INT_MAX - (*str - '0')) / 10)))
-			|| ((sign == -1 && (-res < (INT_MIN + (*str - '0')) / 10))))
-			return (FALSE);
-		res = res * 10 + (*str - '0');
-		str++;
-	}
-	return (TRUE);
+	return (check_int_digits(str, sign));
 }
 
 /**
@@ -90,8 +80,7 @@ int	is_valid_vector_format(const char *str)
 	split = comma_split_elements(str, 3);
 	if (!split)
 		return (FALSE);
-	is_valid = (is_valid_double_str(split[0])
-			&& is_valid_double_str(split[1])
+	is_valid = (is_valid_double_str(split[0]) && is_valid_double_str(split[1])
 			&& is_valid_double_str(split[2]));
 	free_str_array(split);
 	return (is_valid);
@@ -140,11 +129,39 @@ int	is_valid_orientation_format(const char *str)
 	y = ft_atof(split[1]);
 	z = ft_atof(split[2]);
 	free_str_array(split);
-	if (x < MIN_NORM_VEC || x > MAX_NORM_VEC
-		|| y < MIN_NORM_VEC || y > MAX_NORM_VEC
-		|| z < MIN_NORM_VEC || z > MAX_NORM_VEC)
+	if (x < MIN_NORM_VEC || x > MAX_NORM_VEC || y < MIN_NORM_VEC
+		|| y > MAX_NORM_VEC || z < MIN_NORM_VEC || z > MAX_NORM_VEC)
 		return (FALSE);
 	if (x == 0.0 && y == 0.0 && z == 0.0)
 		return (FALSE);
 	return (TRUE);
 }
+
+// int	is_valid_int_str(const char *str)
+// {
+// 	int		sign;
+// 	long	res;
+
+// 	if (!str || !*str)
+// 		return (FALSE);
+// 	if (*str == '+' || *str == '-')
+// 	{
+// 		if (*str == '-')
+// 			sign = -1;
+// 		str++;
+// 	}
+// 	if (!*str)
+// 		return (FALSE);
+// 	res = 0;
+// 	while (*str)
+// 	{
+// 		if (!ft_isdigit(*str))
+// 			return (FALSE);
+// 		if (((sign == 1 && (res > (INT_MAX - (*str - '0')) / 10))) ||
+// 		((sign == -1 && (-res < (INT_MIN + (*str - '0')) / 10))))
+// 			return (FALSE);
+// 		res = res * 10 + (*str - '0');
+// 		str++;
+// 	}
+// 	return (TRUE);
+// }

@@ -5,3 +5,6 @@ miniRT
 .DS_Store
 *.a
 .vscode/
+minilibx-linux/Makefile.gen
+minilibx-linux/test/Makefile.gen
+minilibx-linux/test/mlx-test

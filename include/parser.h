@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 10:03:14 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/06 20:13:26 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/18 20:03:30 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_element_counts		t_element_counts;
 // check_args.c
 int		valid_extension(const char *filename, const char *ext);
 int		check_args(int argc, char **argv);
+int		check_int_digits(const char *str, int sign);
 
 // error.c
 int		print_error(const char *msg);

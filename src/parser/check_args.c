@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 10:12:03 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/01 13:52:50 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/18 20:02:22 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,27 @@ int	check_args(int argc, char **argv)
 	if (valid_extension(argv[1], ".rt") == HAS_ERROR)
 		return (print_error("Invalid file extension"));
 	return (NO_ERROR);
+}
+
+int	check_int_digits(const char *str, int sign)
+{
+	long	res;
+	long	limit;
+	int		digit;
+
+	res = 0;
+	limit = INT_MAX;
+	if (sign == -1)
+		limit = -(long)INT_MIN;
+	while (*str)
+	{
+		if (!ft_isdigit(*str))
+			return (FALSE);
+		digit = *str - '0';
+		if (res > (limit - digit) / 10)
+			return (FALSE);
+		res = res * 10 + digit;
+		str++;
+	}
+	return (TRUE);
 }
