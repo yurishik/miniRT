@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 12:17:30 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/11 16:36:12 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/17 23:25:22 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,11 @@
 # define WIDTH 	800
 # define HEIGHT 600
 
-# define KEY_ESC 65307
+# ifdef __APPLE__
+#  define KEY_ESC 53
+# else
+#  define KEY_ESC 65307
+# endif
 
 typedef struct s_element_counts
 {
