@@ -6,13 +6,13 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/11 23:36:37 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/12 00:22:00 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/18 17:46:41 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "cyl.h"
 #include "minirt.h"
 #include "render.h"
-#include "cyl.h"
 #include <math.h>
 
 static void	cyl_update_nearest(t_cy_hit *nearest, double t, t_cy_face face)
@@ -38,13 +38,12 @@ t_cy_hit	cyl_nearest(double t_side, double t_top, double t_bottom)
 	return (nearest);
 }
 
-double	cyl_cap(t_ray ray, const t_cylinder *cy,
-		t_vec3 cap_center)
+double	cyl_cap(t_ray ray, const t_cylinder *cy, t_vec3 cap_center)
 {
-	double denom;
-	double t;
-	t_vec3 point;
-	t_vec3 q;
+	double	denom;
+	double	t;
+	t_vec3	point;
+	t_vec3	q;
 
 	denom = vec_dot(ray.direction, cy->axis);
 	if (fabs(denom) <= EPSILON)

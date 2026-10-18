@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validate_a_c_l.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 14:38:45 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/09 13:07:45 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/18 17:54:19 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ int	validate_camera(char **tokens)
 		return (print_error("Camera: Invalid viewpoint coordinates"));
 	if (!is_valid_orientation_format(tokens[2]))
 		return (print_error("Camera: Invalid orientation vector"));
-	if (!is_valid_int_str(tokens[3]))
+	if (!is_valid_double_str(tokens[3]))
 		return (print_error("Camera: FOV must be a valid number"));
-	fov = ft_atoi(tokens[3]);
+	fov = ft_atof(tokens[3]);
 	if (fov < 0 || fov > 180)
 		return (print_error("Camera: FOV out of range [0, 180]"));
 	if (fov == 0)
