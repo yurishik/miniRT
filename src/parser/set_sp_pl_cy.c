@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_sp_pl_cy.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 13:29:57 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/03 13:30:19 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/18 23:34:41 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	set_plane(char **tokens, t_scene *scene)
 	obj->type = OBJ_PLANE;
 	set_vec3_from_str(tokens[1], &obj->shape.plane.point);
 	set_vec3_from_str(tokens[2], &obj->shape.plane.normal);
+	obj->shape.plane.normal = vec_normalize(obj->shape.plane.normal);
 	set_color_from_str(tokens[3], &obj->color);
 	obj_add_back(&scene->objects, obj);
 	return (NO_ERROR);
@@ -57,6 +58,7 @@ int	set_cylinder(char **tokens, t_scene *scene)
 	set_vec3_from_str(tokens[2], &obj->shape.cylinder.axis);
 	obj->shape.cylinder.radius = ft_atof(tokens[3]) / 2.0;
 	obj->shape.cylinder.height = ft_atof(tokens[4]);
+	obj->shape.cylinder.axis = vec_normalize(obj->shape.cylinder.axis);
 	set_color_from_str(tokens[5], &obj->color);
 	obj_add_back(&scene->objects, obj);
 	return (NO_ERROR);
