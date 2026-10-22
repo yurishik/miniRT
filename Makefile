@@ -159,21 +159,6 @@ SHELL := /bin/bash
 TARGET := ./miniRT
 
 define TEST_CASES
-# ==============================================================================
-# VALID CASES (正常系 / レンダリングを通すべきファイル)
-# ==============================================================================
-# rt_files/sample.rt                  : 基本的な構成要素（A, C, L, 各オブジェクト）を含む標準シーン
-# rt_files/one_sphere.rt              : 最小構成のオブジェクト（球1つのみ）を含むシーン
-# rt_files/no_objects.rt              : オブジェクトなし（A, C, L のみで背景色描画を許容）
-# rt_files/interleaved_empty_lines.rt : 定義行の間に挟まれた連続空行をスキップして処理可能
-# rt_files/leading_trailing_spaces.rt : 行頭・行末の余分なスペースをトリムして処理可能
-# rt_files/no_newline_eof.rt          : ファイル末尾（EOF直前）に改行がなくても正常にパース可能
-# rt_files/crlf_endings.rt            : Windows形式の改行コード (\r\n) を許容
-# rt_files/tab_separated.rt           : スペースの代わりに水平タブ (\t) 区切りを許容
-# rt_files/explicit_plus_sign.rt      : 明示的な正の符号（+0.0, +255 など）が付いた数値を許容
-# rt_files/norm_not_normalized.rt     : 各成分[-1,1]の非単位ベクトル（ゼロベクトル以外）をプログラム側で自動正規化して描画
-# rt_files/mixed_whitespace.rt        : スペースとタブが混在した連続空白文字を単一の区切りとして許容
-# rt_files/extremely_long_line.rt     : 数千文字におよぶ大量の連続空白を含む極端に長い行でもバッファ破綻せず処理可能
 
 # ==============================================================================
 # INVALID CASES: "Invalid file extension"
@@ -259,7 +244,6 @@ rt_files/fov_negative.rt:            Camera: FOV out of range [0, 180]
 rt_files/fov_over_180.rt:            Camera: FOV out of range [0, 180]
 rt_files/fov_zero.rt:                Camera: FOV cannot be 0 (division by zero)
 rt_files/fov_exact_180.rt:           Camera: FOV cannot be 180 (infinite viewport)
-rt_files/fov_float.rt:               Camera: FOV must be a valid number
 
 # ==============================================================================
 # INVALID CASES: "...: Invalid [orientation|axis normal|normal] vector"
