@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   read_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 11:00:26 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 19:23:25 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/22 19:36:18 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /**
- * @brief なにもしない(ft_lstclearに引き渡す用)
+ * @brief Do nothing (callback for ft_lstclear)
  *
  */
 static void	do_nothing(void *content)
@@ -22,10 +22,10 @@ static void	do_nothing(void *content)
 }
 
 /**
- * @brief 行を連結リストに追加する
+ * @brief Append a line to the linked list
  *
- * @param line_list linked listの先頭ポインタ
- * @return 特にエラーがなければTRUE, なにか発生したらFALSE
+ * @param line_list Pointer to the head of the linked list
+ * @return TRUE on success, FALSE on failure
  */
 static int	append_line(t_list **line_list, char *line)
 {
@@ -39,10 +39,10 @@ static int	append_line(t_list **line_list, char *line)
 }
 
 /**
- * @brief 連結リスト→配列に変換する
+ * @brief Convert a linked list to an array
  *
- * @param line_list linked listの先頭ポインタ
- * @return char** 配列に変換したもの
+ * @param line_list Pointer to the head of the linked list
+ * @return Array of strings converted from the list
  */
 static char	**convert_list_to_array(t_list **line_list)
 {
@@ -73,11 +73,11 @@ static char	**convert_list_to_array(t_list **line_list)
 }
 
 /**
- * @brief 読み込み途中のを開放する(ために一旦ファイル末尾まで読み込ませる)
+ * @brief Drain the file and free data after a read error
  *
  * @param fd
- * @param line_list ここまで読み込んできた分がlinked listに入れてあり、その先頭ポインタ
- * @param line 直前に読み込んだ1行
+ * @param line_list Head pointer of the list of lines read so far
+ * @param line Most recently read line
  * @return NULL
  */
 static char	**clean_read_error(int fd, t_list **line_list, char *line)
@@ -96,10 +96,10 @@ static char	**clean_read_error(int fd, t_list **line_list, char *line)
 }
 
 /**
- * @brief 1行ずつ読み込み行末の\nや空行のみを削除し、char**の配列に入れて返す
+ * @brief Read lines, remove trailing \n and blank lines, and return an array
  *
  * @param filepath
- * @return 空白行がなくなったchar**の配列、行末の\nは削除されている
+ * @return Array of nonblank lines without trailing \n
  */
 char	**read_valid_lines(const char *filepath)
 {

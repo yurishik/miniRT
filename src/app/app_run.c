@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 23:22:47 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/18 17:37:27 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/22 20:18:33 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,15 @@
 #include "parser.h"
 #include "render.h"
 
+/**
+ * @brief Load a scene, render it, and start the graphics event loop.
+ *
+ * Initializes the application, parses the scene file, sets up graphics,
+ * renders the image, and displays it. Cleans up on failure.
+ *
+ * @param filename Path to the scene description file.
+ * @return 0 on success, or 1 if initialization or rendering fails.
+ */
 int	app_run(const char *filename)
 {
 	t_app	app;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   set_a_c_l.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 13:29:01 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/11 12:50:40 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/22 19:37:42 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	set_ambient(char **tokens, t_ambient *ambient)
 }
 
 /**
- * @brief カメラの情報からrightとupを計算して格納する
+ * @brief Calculate and store the camera right and up vectors
  *
  */
 static void	calc_camera_right_up(t_camera *cam)

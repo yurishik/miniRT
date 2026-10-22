@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_for_debug.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 12:46:20 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/10 12:45:28 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/22 19:08:40 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "minirt.h"
 
 /**
- * @brief 文字列配列を表示する
+ * @brief Print an array of strings
  *
  */
 void	print_str_array_for_debug(char **array)
@@ -41,7 +41,7 @@ static void	print_count_line(const char *label, int count)
 }
 
 /**
- * @brief t_element_countsの中身をいい感じに表示する
+ * @brief Print the contents of t_element_counts in a readable format
  * 
  */
 void	print_element_counts_for_debug(const t_element_counts *counts)

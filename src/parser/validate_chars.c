@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validate_line.c                                    :+:      :+:    :+:   */
+/*   validate_chars.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 11:20:13 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 13:09:01 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/22 19:41:07 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /**
- * @brief 空行チェック
+ * @brief Check whether a line is blank
  *
  * @param line 
- * @return 空行ならTRUE, そうでないならFALSE
+ * @return TRUE if blank, otherwise FALSE
  */
 int	is_blank_line(const char *line)
 {
@@ -35,10 +35,10 @@ int	is_blank_line(const char *line)
 }
 
 /**
- * @brief ある文字がホワイトリスト内かチェック
+ * @brief Check whether a character is allowed
  *
  * @param c
- * @return ホワイトリスト内ならTRUE, そうでないならFALSE
+ * @return TRUE if allowed, otherwise FALSE
  */
 int	is_allowed_char(char c)
 {
@@ -48,10 +48,10 @@ int	is_allowed_char(char c)
 }
 
 /**
- * @brief ある行全体がホワイトリスト内かチェック
+ * @brief Check whether all characters in a line are allowed
  *
  * @param line
- * @return 行全体がホワイトリスト内ならTRUE, そうでないならFALSE
+ * @return TRUE if all characters are allowed, otherwise FALSE
  */
 int	is_valid_chars_line(const char *line)
 {

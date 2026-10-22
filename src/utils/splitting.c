@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   splitting.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 13:19:13 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 15:06:35 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/22 19:07:26 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,10 +77,10 @@ char	**ft_split_isspace(const char *str)
 }
 
 /**
- * @brief 文字列のなかに指定の文字が何回出てくるかを数える
+ * @brief Count occurrences of a specified character in a string
  *
- * @param str 文字列
- * @param c 数えたい文字
+ * @param str The input string
+ * @param c The character to count
  */
 static int	count_char(const char *str, char c)
 {
@@ -97,11 +97,11 @@ static int	count_char(const char *str, char c)
 }
 
 /**
- * @brief 文字列をカンマ区切りで分割する
+ * @brief Split a string by commas
  *
- * @param str もとの文字列
- * @param num 分割個数
- * @return うまく行けばsplitされたもの、カンマの個数などが変ならNULLを返す
+ * @param str The original string
+ * @param num The expected number of elements
+ * @return The split array on success, or NULL if the format is invalid
  */
 char	**comma_split_elements(const char *str, int num)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   color.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/11 17:00:46 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/11 17:00:48 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/22 19:16:40 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <math.h>
 
 /**
- * @brief 色のベクトルデータからRGB情報のintに変換する
+ * @brief Convert a color vector to an integer RGB value.
  *
  */
 

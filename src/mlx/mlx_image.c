@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_image.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/11 17:11:30 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/11 17:11:30 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/22 20:04:05 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "mlx.h"
 
 /**
- * @brief so_longから、画面描画用のデータを作成する
+ * @brief Create image data for screen rendering based on so_long
  *
  */
 static void	mlx_set_pixel(t_mlx_image *image, int x, int y, int color)

@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/11 17:11:25 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/17 23:14:06 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/22 20:03:41 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdlib.h>
 
 /**
- * @brief 描画バッファをウィンドウに転送し、イベントループを開始する
+ * @brief Transfer the render buffer to the window and start the event loop
  *
  */
 static int	close_app(t_app *app)

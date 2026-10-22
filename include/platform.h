@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 23:03:44 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/09 17:17:35 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/22 20:15:11 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,34 +47,3 @@ void	platform_present(t_platform *platform, const t_image *image);
 int		platform_start_loop(struct s_app *app);
 
 #endif
-
-// t_platform
-// │
-// ├── mlx
-// │    └─ MiniLibX
-// │
-// ├── window
-// │    └─ wondow
-// │
-// └── image
-//      ├─ ptr
-//      ├─ addr
-//      ├─ bits_per_pixel
-//      ├─ line_length
-//      └─ endian
-
-// platform_init()
-//     ↓
-// MLX初期化
-
-// platform_present()
-//     ↓
-// t_image → MLX
-
-// platform_start_loop()
-//     ↓
-// イベント / mlx_loop
-
-// platform_destroy()
-//     ↓
-// MLX解放

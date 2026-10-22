@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 17:47:11 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/18 17:47:18 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/22 20:37:23 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 #include "render.h"
 #include <math.h>
 
+/**
+ * @brief Calculate the quadratic coefficients for the cylinder side.
+ *
+ * Projects the ray origin offset and direction onto the plane perpendicular
+ * to the cylinder axis, then computes the coefficients and discriminant.
+ *
+ * @param ray Ray to test against the cylinder.
+ * @param cy Cylinder containing the axis and radius.
+ * @param q Structure used to store the quadratic equation data.
+ */
 static void	cyl_quadratic(t_ray ray, const t_cylinder *cy, t_cy_quad *q)
 {
 	q->w = vec_sub(ray.origin, cy->center);
@@ -27,6 +37,18 @@ static void	cyl_quadratic(t_ray ray, const t_cylinder *cy, t_cy_quad *q)
 	q->disc = q->b * q->b - 4.0 * q->a * q->c;
 }
 
+/**
+ * @brief Check whether a ray parameter hits the finite cylinder side.
+ *
+ * Rejects intersections behind or too close to the ray origin and points
+ * outside the cylinder's height along its axis.
+ *
+ * @param ray Ray being tested.
+ * @param cy Cylinder whose side is being tested.
+ * @param w Vector from the cylinder center to the ray origin.
+ * @param t Ray parameter for the candidate intersection.
+ * @return 1 if the intersection is valid, otherwise 0.
+ */
 static int	cyl_side_root(t_ray ray, const t_cylinder *cy, t_vec3 w, double t)
 {
 	double	h;
@@ -41,6 +63,16 @@ static int	cyl_side_root(t_ray ray, const t_cylinder *cy, t_vec3 w, double t)
 	return (1);
 }
 
+/**
+ * @brief Find the nearest valid ray intersection with a cylinder side.
+ *
+ * Solves the quadratic equation for the infinite cylinder and checks
+ * whether either intersection lies within the finite cylinder's height.
+ *
+ * @param ray Ray to test for intersection.
+ * @param cy Cylinder to intersect with the ray.
+ * @return The nearest valid ray parameter, or -1.0 if there is no hit.
+ */
 double	cyl_side(t_ray ray, const t_cylinder *cy)
 {
 	t_cy_quad	q;

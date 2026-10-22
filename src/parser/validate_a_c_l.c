@@ -6,14 +6,14 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 14:38:45 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/18 17:54:19 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/22 19:39:12 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /**
- * @brief 文字列配列の行数を数える(tokenの数を数える)
+ * @brief Count the number of tokens in a string array
  */
 size_t	count_tokens(char **tokens)
 {
@@ -28,7 +28,7 @@ size_t	count_tokens(char **tokens)
 }
 
 /**
- * @brief Anbientのバリデーションを行う
+ * @brief Validate ambient lighting data
  */
 int	validate_ambient(char **tokens)
 {

@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 17:46:17 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/18 17:46:19 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/22 20:34:54 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,17 @@
 #include "cyl.h"
 #include <math.h>
 
+/**
+ * @brief Find the nearest intersection between a ray and a cylinder.
+ *
+ * Tests the cylinder side and both end caps, then selects the closest
+ * valid intersection. Stores the hit distance, point, and surface normal.
+ *
+ * @param ray Ray to test for intersection.
+ * @param cy Cylinder to intersect with the ray.
+ * @param hit Structure used to store the intersection information.
+ * @return 1 if an intersection is found, otherwise 0.
+ */
 int	hit_cylinder(t_ray ray, const t_cylinder *cy, t_hit *hit)
 {
 	t_vec3		top_center;

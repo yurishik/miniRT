@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 10:18:00 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 10:50:24 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/22 19:22:42 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /**
- * @brief エラー文言の表示
+ * @brief Display an error message
  *
- * @param msg 続けて表示するメッセージ
+ * @param msg Message to display after the error prefix
  */
 int	print_error(const char *msg)
 {

@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 12:17:30 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/17 23:25:22 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/22 20:13:55 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,15 +68,5 @@ typedef struct s_element_counts
 	int	cylinder_count;
 	int	total_objects;
 }	t_element_counts;
-
-// just for test
-
-// typedef struct s_vars
-// {
-// 	void		*mlx;
-// 	void		*win;
-// 	t_img		img;
-// 	t_scene		scene; // 一旦なんとかするために追加
-// }	t_vars;
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 15:24:35 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/09 12:49:14 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/22 19:17:17 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 #include "render.h"
 
 /**
- * @brief 各ピクセルで計算して描画用のデータを作成する
+ * @brief Calculate each pixel to generate rendering data.
  *
- * @param 描画用のデータの仮の構造体、一旦main.c内で固定値を設定している
+ * @param Temporary structure for rendering data; currently initialized with fixed values in main.c.
  */
 int	render(const t_scene *scene, t_image *image)
 {

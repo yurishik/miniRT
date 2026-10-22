@@ -3,21 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 11:12:51 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/27 15:10:39 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/22 19:11:45 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /**
- * @brief ある文字がスペースかどうか判定する
+ * @brief Check whether a character is whitespace
  *
  * @param c
  * @return TRUE/FALSE
  */
+
 int	ft_isspace(int c)
 {
 	if (c == ' ' || c == '\f' || c == '\n'
@@ -27,10 +28,10 @@ int	ft_isspace(int c)
 }
 
 /**
- * @brief get_next_lineで取得したlineの末尾の\nを削除する
+ * @brief Remove the trailing \n from a line returned by get_next_line
  *
  * @param fd
- * @return line \nを削除したline
+ * @return The line with its trailing \n removed
  */
 char	*get_next_line_trim(int fd)
 {
@@ -47,9 +48,9 @@ char	*get_next_line_trim(int fd)
 }
 
 /**
- * @brief 文字列の配列を free する
+ * @brief Free an array of strings
  *
- * @param arr freeしたい配列
+ * @param arr The array to free
  */
 void	free_str_array(char **arr)
 {
@@ -67,7 +68,7 @@ void	free_str_array(char **arr)
 }
 
 /**
- * @brief 小数点以下の処理を切り出し(just for norminette)
+ * @brief Handle the fractional part separately (for Norminette)
  */
 static double	parse_fraction(const char *str)
 {
@@ -85,7 +86,7 @@ static double	parse_fraction(const char *str)
 }
 
 /**
- * @brief 文字列を double に変換する
+ * @brief Convert a string to a double
  */
 double	ft_atof(const char *str)
 {

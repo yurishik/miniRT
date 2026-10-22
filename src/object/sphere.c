@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/04 15:53:42 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/11 19:04:17 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/22 19:51:55 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,20 @@
 #include <math.h>
 
 /**
- * @brief レイと球体の交差判定を行い、最も手前の交点までの距離tを計算する
- * 
- * 球面の方程式とレイの直線方程式から2次方程式を立て、判別式を用いて衝突判定を行う。
- * レイの方向ベクトルが正規化済み (|ray.direction| = 1.0) であることを前提に、
- * 2次方程式の偶数公式 (b = 2h) を用いて割り算を排除し計算を最適化している。
- * 自己交差（シャドウアクネ等）を防止するため、EPSILON 以上の正の解のみを採用する。
- * 球の内部を見ている場合に法線ベクトルを逆向きとする
+ * @brief Check ray-sphere intersection and calculate the nearest hit distance t.
  *
- * @param ray 判定対象のレイ
- * @param sp 判定対象の球体データ（中心座標、半径など）
- * @param hit 衝突情報を格納する構造体ポインタ
- * @return 衝突した場合TRUE、衝突しない（またはmax_tより遠い）場合はFALSE
+ * Derive a quadratic equation from the sphere and ray equations, then use
+ * its discriminant to determine whether an intersection occurs.
+ * Assuming the ray direction is normalized (|ray.direction| = 1.0),
+ * use the half-b form (b = 2h) to avoid division and optimize calculations.
+ * Accept only positive solutions greater than EPSILON to prevent
+ * self-intersections (such as shadow acne).
+ * Reverse the normal vector when viewing the sphere from the inside.
+ *
+ * @param ray Ray to test for intersection.
+ * @param sp Sphere data, including its center and radius.
+ * @param hit Pointer to the structure storing intersection information.
+ * @return TRUE if hit; FALSE if no hit (or farther than max_t).
  */
 int	hit_sphere(t_ray ray, const t_sphere *sp, t_hit *hit)
 {

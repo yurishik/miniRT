@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 00:20:25 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/12 00:20:52 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/22 20:14:40 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ t_color				vec_to_color(t_vec3 vector);
 
 #endif
 
-// 使い方↓
+// usage↓
 //  object.type = OBJ_CYLINDER;
 
 // object.shape.cylinder.center.x = 50;

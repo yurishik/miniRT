@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   validate_lines.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 14:14:23 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/04 15:56:23 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/22 19:45:29 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /**
- * @brief identifierごとに適切なバリデーションの関数に飛ばす
+ * @brief Dispatch to the validator for the given identifier
  * 
- * @param トークン化された1行
+ * @param Tokenized input line
  * @return HAS_ERROR/NO_ERROR
  */
 static int	validate_identifier(char **tokens)
@@ -36,10 +36,10 @@ static int	validate_identifier(char **tokens)
 }
 
 /**
- * @brief identifierごとに適切なsceneへの代入関数に飛ばす
+ * @brief Dispatch to the scene setter for the given identifier
  * 
- * @param トークン化された1行
- * @param t_scene構造体
+ * @param Tokenized input line
+ * @param Scene structure
  * @return HAS_ERROR/NO_ERROR
  */
 static int	set_element_to_scene(char **tokens, t_scene *scene)
@@ -60,10 +60,10 @@ static int	set_element_to_scene(char **tokens, t_scene *scene)
 }
 
 /**
- * @brief トークン化して、識別子ごとに適切なvalidationを実行する
+ * @brief Tokenize a line and validate it based on its identifier
  * 
- * @param line 1行
- * @param t_scene構造体
+ * @param line Input line
+ * @param Scene structure
  * @return HAS_ERROR/NO_ERROR
  */
 static int	process_single_line(char *line, t_scene *scene)
@@ -91,10 +91,10 @@ static int	process_single_line(char *line, t_scene *scene)
 }
 
 /**
- * @brief 全行をループして1行ずつトークン化し、バリデーションを行う、エラーがあったらそこで終了
+ * @brief Process and validate each line, stopping on error
  * 
- * @param 全行の配列
- * @param t_scene構造体
+ * @param Array of input lines
+ * @param Scene structure
  * @return HAS_ERROR/NO_ERROR
  */
 int	validate_lines(char **lines, t_scene *scene)

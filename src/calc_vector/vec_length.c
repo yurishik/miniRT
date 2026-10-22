@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 20:07:16 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/06 17:53:24 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/22 20:08:58 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <math.h>
 
 /**
- * @brief ベクトルの長さの２乗を返す
+ * @brief Return the squared length of a vector
  *
  */
 double	vec_length_squared(t_vec3 v)
@@ -26,7 +26,7 @@ double	vec_length_squared(t_vec3 v)
 }
 
 /**
- * @brief ベクトルの長さを返す
+ * @brief Return the length of a vector
  * 
  */
 double	vec_length(t_vec3 v)
@@ -35,7 +35,7 @@ double	vec_length(t_vec3 v)
 }
 
 /**
- * @brief 正規化されたベクトルを返す
+ * @brief Return a normalized vector
  * 
  */
 t_vec3	vec_normalize(t_vec3 v)

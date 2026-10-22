@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   vec_vec.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 19:51:22 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/04 15:17:24 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/22 20:11:18 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /**
- * @brief ベクトルの足し算を行う
+ * @brief Add two vectors
  *
  */
 t_vec3	vec_add(t_vec3 v1, t_vec3 v2)
@@ -25,7 +25,7 @@ t_vec3	vec_add(t_vec3 v1, t_vec3 v2)
 }
 
 /**
- * @brief ベクトルの引き算を行う
+ * @brief Subtract two vectors
  *
  */
 t_vec3	vec_sub(t_vec3 v1, t_vec3 v2)
@@ -49,7 +49,7 @@ double	vec_dot(t_vec3 v1, t_vec3 v2)
 }
 
 /**
- * @brief ベクトルの外積を求める
+ * @brief Calculate the dot product of two vectors
  *
  */
 t_vec3	vec_cross(t_vec3 v1, t_vec3 v2)
@@ -63,7 +63,7 @@ t_vec3	vec_cross(t_vec3 v1, t_vec3 v2)
 }
 
 /**
- * @brief ベクトルのアダマール積を求める（要素同士を掛け算して新たなベクトルを作成する）
+ * @brief Compute the Hadamard (component-wise) product of two vectors
  *
  */
 t_vec3	vec_mult_vec(t_vec3 v1, t_vec3 v2)

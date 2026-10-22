@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   vec_basic.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 19:40:05 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/04 15:52:10 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/22 20:07:58 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /**
- * @brief x,y,zの値を渡して新しくベクトルを作成する
+ * @brief Create a new vector with the given x, y, and z values
  *
  */
 t_vec3	vec_new(double x, double y, double z)
@@ -27,7 +27,7 @@ t_vec3	vec_new(double x, double y, double z)
 }
 
 /**
- * @brief 向きが反対のベクトルを返す
+ * @brief Return a vector pointing in the opposite direction
  *
  */
 t_vec3	vec_negate(t_vec3 v)
@@ -39,12 +39,12 @@ t_vec3	vec_negate(t_vec3 v)
 }
 
 /**
- * @brief ベクトルの各成分を指定した最小値・最大値の範囲内に収める（クランプ処理）
+ * @brief Clamp each vector component to the specified range
  *
- * @param v 対象のベクトル
- * @param min 下限値
- * @param max 上限値
- * @return 範囲内に制限された新しいベクトル
+ * @param v Vector to clamp
+ * @param min Lower bound
+ * @param max Upper bound
+ * @return New vector with components clamped to the range
  */
 t_vec3	vec_clamp(t_vec3 v, double min, double max)
 {

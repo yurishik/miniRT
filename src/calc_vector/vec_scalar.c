@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   vec_scalar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 19:49:08 by yurishik          #+#    #+#             */
-/*   Updated: 2026/09/30 18:54:10 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/22 20:09:46 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /**
- * @brief あるベクトルを定数倍したベクトルを返す
+ * @brief Return a vector multiplied by a scalar
  *
  */
 t_vec3	vec_mult(t_vec3 v, double k)
@@ -25,7 +25,7 @@ t_vec3	vec_mult(t_vec3 v, double k)
 }
 
 /**
- * @brief あるベクトルを定数で除算したベクトルを返す
+ * @brief Return a vector divided by a scalar
  *
  */
 t_vec3	vec_div(t_vec3 v, double k)

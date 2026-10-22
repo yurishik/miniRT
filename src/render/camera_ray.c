@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   camera_ray.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/11 17:00:34 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/11 17:00:34 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/22 19:15:20 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ t_ray	create_camera_ray(int x, int y, const t_camera *cam)
 }
 
 /**
- * @brief カメラの視点から指定ピクセル (x, y) に向かうレイ（光線）を生成する
+ * @brief Generate a ray from the camera through pixel (x, y).
  * 
- * 2D の画像ピクセル座標 (x, y) を、アスペクト比を考慮した 3D 空間上の
- * スクリーン平面（ビューポート）の座標へとマッピングし、カメラ位置 (cam->position) から
- * その点へ向かう正規化された方向ベクトルを持つレイを構築する。
- * （※現状はカメラが Z 軸正方向 (0, 0, 1) を向いている前提）
+ * Map 2D pixel coordinates (x, y) to a viewport in 3D space,
+ * accounting for the aspect ratio. Construct a ray from the camera
+ * position (cam->position) with a normalized direction vector.
+ * (Currently assumes the camera faces the positive Z axis (0, 0, 1).)
  *
- * @param x スクリーンの水平ピクセル座標 (0 〜 WIDTH - 1)
- * @param y スクリーンの垂直ピクセル座標 (0 〜 HEIGHT - 1)
- * @param cam カメラ情報（視点位置、向き、ビューポート幅など）を保持する構造体
- * @return 生成されたレイ（原点 origin と正規化された方向ベクトル dir）
+ * @param x Horizontal pixel coordinate (0 to WIDTH - 1)
+ * @param y Vertical pixel coordinate (0 to HEIGHT - 1)
+ * @param cam Camera data (position, direction, viewport width, etc.)
+ * @return Generated ray (origin and normalized direction vector)
  */

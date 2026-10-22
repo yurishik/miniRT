@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   set_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 13:32:06 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/04 16:05:37 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/22 19:38:24 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /**
- * @brief libftのft_lstadd_backみたいなののt_objectバージョン
+ * @brief Append a t_object, similar to libft ft_lstadd_back
  * 
  */
 void	obj_add_back(t_object **head, t_object *new_obj)

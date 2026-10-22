@@ -6,18 +6,18 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 10:12:03 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/18 20:02:22 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/22 19:21:29 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /**
- * @brief 拡張子のチェック
+ * @brief Check the file extension
  *
- * @param filename ファイル名
- * @param ext 拡張子
- * @return 拡張子が異なる場合はHAS_ERROR, 拡張子が正しければNO_ERROR
+ * @param filename File name
+ * @param ext Expected extension
+ * @return HAS_ERROR if the extension is invalid, otherwise NO_ERROR
  */
 int	valid_extension(const char *filename, const char *ext)
 {
@@ -38,11 +38,11 @@ int	valid_extension(const char *filename, const char *ext)
 }
 
 /**
- * @brief 引数と拡張子のチェック
+ * @brief Check the arguments and file extension
  *
- * @param int argc (mainからそのまま渡す)
- * @param char **argv (mainからそのまま渡す)
- * @return なにか問題があればHAS_ERROR, 問題なければNO_ERROR
+ * @param int argc (passed directly from main)
+ * @param char **argv (passed directly from main)
+ * @return HAS_ERROR if an error occurs, otherwise NO_ERROR
  */
 int	check_args(int argc, char **argv)
 {

@@ -6,12 +6,21 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 13:29:57 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/18 23:34:41 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/22 20:30:16 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
+/**
+ * @brief Create a sphere object and add it to the scene.
+ *
+ * Converts the parsed center, diameter, and color into sphere data.
+ *
+ * @param tokens Parsed sphere parameters from the scene file.
+ * @param scene Scene to which the new sphere is added.
+ * @return NO_ERROR on success, or an error code on allocation failure.
+ */
 int	set_sphere(char **tokens, t_scene *scene)
 {
 	t_object	*obj;
@@ -28,6 +37,15 @@ int	set_sphere(char **tokens, t_scene *scene)
 	return (NO_ERROR);
 }
 
+/**
+ * @brief Create a plane object and add it to the scene.
+ *
+ * Sets the plane's point, normalized normal vector, and color.
+ *
+ * @param tokens Parsed plane parameters from the scene file.
+ * @param scene Scene to which the new plane is added.
+ * @return NO_ERROR on success, or an error code on allocation failure.
+ */
 int	set_plane(char **tokens, t_scene *scene)
 {
 	t_object	*obj;
@@ -45,6 +63,15 @@ int	set_plane(char **tokens, t_scene *scene)
 	return (NO_ERROR);
 }
 
+/**
+ * @brief Create a cylinder object and add it to the scene.
+ *
+ * Sets the center, normalized axis, radius, height, and color.
+ *
+ * @param tokens Parsed cylinder parameters from the scene file.
+ * @param scene Scene to which the new cylinder is added.
+ * @return NO_ERROR on success, or an error code on allocation failure.
+ */
 int	set_cylinder(char **tokens, t_scene *scene)
 {
 	t_object	*obj;

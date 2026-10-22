@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   validate_structure.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 12:12:59 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/03 12:42:00 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/22 19:47:49 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minirt.h"
 
 /**
- * @brief 識別子の完全一致を判定する
+ * @brief Check whether an identifier matches exactly
  * 
- * @param str 文字列
- * @param id 判定したい識別子
- * @return 識別子が完全一致していた場合TRUE, そうでなければFALSE
+ * @param str Input string
+ * @param id Identifier to match
+ * @return TRUE on an exact match, otherwise FALSE
  */
 static int	is_id_match(const char *str, const char *id)
 {
@@ -32,10 +32,10 @@ static int	is_id_match(const char *str, const char *id)
 }
 
 /**
- * @brief 行先頭の空白をスキップし、どの識別子かを返す
+ * @brief Skip leading whitespace and find the line identifier
  * 
  * @param line
- * @return 合致した識別子
+ * @return Matching identifier
  */
 static const char	*find_matching_id(const char *line)
 {
@@ -61,10 +61,10 @@ static const char	*find_matching_id(const char *line)
 }
 
 /**
- * @brief 識別子に応じて構造体内それぞれの個数を加算
+ * @brief Increment the count for the given identifier
  * 
- * @param id 識別子
- * @param counts 構造体
+ * @param id Identifier
+ * @param counts Element count structure
  */
 static void	increment_count(const char *id, t_element_counts *counts)
 {
@@ -83,10 +83,10 @@ static void	increment_count(const char *id, t_element_counts *counts)
 }
 
 /**
- * @brief 各要素の出現回数をカウント、objectsの全体の個数もここで取得しておく(TODO 不要なら削除)
+ * @brief Count each element and total objects (TODO remove if unnecessary)
  * 
- * @param lines 文字列配列
- * @param counts 個数を保持する構造体
+ * @param lines Array of strings
+ * @param counts Structure holding element counts
  * @return HAS_ERROR/NO_ERROR
  */
 static int	count_all_elements(char **lines, t_element_counts *counts)
@@ -110,10 +110,10 @@ static int	count_all_elements(char **lines, t_element_counts *counts)
 }
 
 /**
- * @brief A, C, L が各1つ存在することを確認する
+ * @brief Verify that exactly one A, C, and L element exists
  * 
- * @param lines 文字列配列
- * @param counts 個数を保持する構造体
+ * @param lines Array of strings
+ * @param counts Structure holding element counts
  * @return HAS_ERROR/NO_ERROR
  */
 int	validate_structure(char **lines, t_element_counts *counts)

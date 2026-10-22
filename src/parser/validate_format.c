@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 13:23:01 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/18 20:04:31 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/22 19:43:23 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #include <limits.h>
 
 /**
- * @brief 正しい浮動小数点数の書式(符号、整数部、小数点、小数部)か判定する
- *        (整数部分が11桁以内、小数点以下が10桁以内飲みを認めるとする // TODO仮置きなので後で変えるかも)
+ * @brief Validate the sign, integer, and fractional parts of a number
+ *        (Allow up to 11 integer and 10 fractional digits // TODO provisional)
  * @return TRUE/FALSE
  */
 int	is_valid_double_str(const char *str)
@@ -48,7 +48,7 @@ int	is_valid_double_str(const char *str)
 }
 
 /**
- * @brief 符号と数字のみの整数文字列か、INT_MIN - INT_MAXの範囲に入っているかを判定する
+ * @brief Check integer format and range from INT_MIN to INT_MAX
  */
 
 int	is_valid_int_str(const char *str)
@@ -70,7 +70,7 @@ int	is_valid_int_str(const char *str)
 }
 
 /**
- * @brief "x,y,z"のカンマ区切り3要素かつ各値が正しい書式の浮動小数点数か判定する
+ * @brief Validate three comma-separated floating-point values (x,y,z)
  */
 int	is_valid_vector_format(const char *str)
 {
@@ -87,7 +87,7 @@ int	is_valid_vector_format(const char *str)
 }
 
 /**
- * @brief "r,g,b"のカンマ区切り3要素かつ各値が0-255の整数か判定する
+ * @brief Validate three comma-separated RGB integers in [0,255]
  */
 int	is_valid_rgb_format(const char *str)
 {
@@ -113,7 +113,7 @@ int	is_valid_rgb_format(const char *str)
 }
 
 /**
- * @brief  3D normalized vectorかどうかを確認する[-1,1]
+ * @brief Check 3D orientation vector components in [-1,1]
  */
 int	is_valid_orientation_format(const char *str)
 {
@@ -136,32 +136,3 @@ int	is_valid_orientation_format(const char *str)
 		return (FALSE);
 	return (TRUE);
 }
-
-// int	is_valid_int_str(const char *str)
-// {
-// 	int		sign;
-// 	long	res;
-
-// 	if (!str || !*str)
-// 		return (FALSE);
-// 	if (*str == '+' || *str == '-')
-// 	{
-// 		if (*str == '-')
-// 			sign = -1;
-// 		str++;
-// 	}
-// 	if (!*str)
-// 		return (FALSE);
-// 	res = 0;
-// 	while (*str)
-// 	{
-// 		if (!ft_isdigit(*str))
-// 			return (FALSE);
-// 		if (((sign == 1 && (res > (INT_MAX - (*str - '0')) / 10))) ||
-// 		((sign == -1 && (-res < (INT_MIN + (*str - '0')) / 10))))
-// 			return (FALSE);
-// 		res = res * 10 + (*str - '0');
-// 		str++;
-// 	}
-// 	return (TRUE);
-// }

@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/09 18:29:41 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/18 17:47:55 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/22 20:33:12 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,18 @@
 #include "render.h"
 #include <math.h>
 
+/**
+ * @brief Find the intersection between a ray and a plane.
+ *
+ * Computes the intersection distance and stores the hit point and normal.
+ * Returns no hit if the ray is parallel to the plane or the intersection
+ * is too close or behind the ray origin. The normal faces the incoming ray.
+ *
+ * @param ray Ray to test for intersection.
+ * @param plane Plane to intersect with the ray.
+ * @param hit Structure used to store the intersection information.
+ * @return 1 if an intersection is found, otherwise 0.
+ */
 int	hit_plane(t_ray ray, const t_plane *plane, t_hit *hit)
 {
 	double	denom;
