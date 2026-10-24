@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scene.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 20:14:23 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/10 11:57:40 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/23 22:40:09 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,10 @@ typedef struct s_hit
 	t_vec3	normal;
 	t_color	color;
 }	t_hit;
+// double  t;        Ray parameter at the intersection
+// t_vec3  point;    Intersection point in 3D space
+// t_vec3  normal;   Surface normal vector at the intersection
+// t_color color;    Base color of the intersected object
 
 typedef struct s_scene
 {

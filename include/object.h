@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 00:20:25 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/22 20:14:40 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/23 22:57:18 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,10 @@ typedef struct s_cylinder
 	double			radius;
 	double			height;
 }					t_cylinder;
-// cy 50,0,20 0,0,1 14.2 21.42 10,0,255
-//    ↓        ↓      ↓    ↓      ↓
-//  center    axis diameter height color
+// cy 50,0,20 0,0,1 14.2 　　21.42 10,0,255
+//    ↓        ↓      ↓    　　↓      ↓
+//  center    axis diameter height 　color
+//                 (radius)
 
 typedef enum e_object_type
 {

@@ -6,7 +6,7 @@
 /*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/18 17:46:17 by hisasano          #+#    #+#             */
-/*   Updated: 2026/10/22 20:34:54 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/23 23:17:13 by hisasano         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,3 +47,5 @@ int	hit_cylinder(t_ray ray, const t_cylinder *cy, t_hit *hit)
 	hit->normal = cyl_normal(cy, hit->point, nearest.face);
 	return (1);
 }
+// Calculate the intersection point on the ray.
+// Calculate the surface normal at the intersection point.
