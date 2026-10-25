@@ -56,7 +56,7 @@ Execute the program by passing a valid `.rt` scene configuration file:
 ### Controls
 
 * **`ESC` key:** Close the window and exit the program cleanly.
-* **Window Close Button (`×`):** Terminate the process and free all allocated resources without memory leaks.
+* **Window Close Button (`x`):** Terminate the process and free all allocated resources without memory leaks.
 
 
 ## Resources

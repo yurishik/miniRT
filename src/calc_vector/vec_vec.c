@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vec_vec.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/27 19:51:22 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/22 20:11:18 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/25 11:12:26 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_vec3	vec_sub(t_vec3 v1, t_vec3 v2)
 }
 
 /**
- * @brief ベクトルの内積を求める
+ * @brief Calculate the dot product of two vectors
  *
  */
 double	vec_dot(t_vec3 v1, t_vec3 v2)
@@ -49,7 +49,7 @@ double	vec_dot(t_vec3 v1, t_vec3 v2)
 }
 
 /**
- * @brief Calculate the dot product of two vectors
+ * @brief Calculate the cross product of two vectors
  *
  */
 t_vec3	vec_cross(t_vec3 v1, t_vec3 v2)

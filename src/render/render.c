@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 15:24:35 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/22 19:17:17 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/25 11:18:36 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 /**
  * @brief Calculate each pixel to generate rendering data.
  *
- * @param Temporary structure for rendering data; currently initialized with fixed values in main.c.
+ * @param Temporary structure for rendering data;
+ * currently initialized with fixed values in main.c.
  */
 int	render(const t_scene *scene, t_image *image)
 {

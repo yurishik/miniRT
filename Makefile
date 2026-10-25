@@ -106,8 +106,7 @@ GNL_FILES := \
 
 UTILS_FILES := \
 	utils/splitting.c \
-	utils/utils.c \
-	utils/utils_for_debug.c
+	utils/utils.c
 
 SRC_FILES := \
 	$(APP_FILES) \
