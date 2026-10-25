@@ -280,7 +280,7 @@ export TEST_CASES
 
 .PHONY: test
 
-test:
+test: $(TARGET)
 	@chmod 000 rt_files/no_permission.rt 2>/dev/null || true; \
 	trap 'chmod 644 rt_files/no_permission.rt 2>/dev/null || true' EXIT INT TERM; \
 	FAILED=0; \
