@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_image.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/11 17:11:30 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/22 20:04:05 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/25 11:40:49 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,6 @@ void	platform_present(t_platform *platform, const t_image *image)
 	mlx_put_image_to_window(platform->mlx, platform->window,
 		platform->image.ptr, 0, 0);
 }
-
-// t_image
-//  ↓
-// MLX image buffer
-//  ↓
-// mlx_put_image_to_window
 
 // void	my_mlx_pixel_put(t_img *img, int x, int y, int color)
 // {

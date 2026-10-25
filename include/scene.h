@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scene.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hisasano <hisasano@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/06 20:14:23 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/23 22:40:09 by hisasano         ###   ########.fr       */
+/*   Updated: 2026/10/25 11:41:40 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ typedef struct s_ray
 	t_vec3	origin;
 	t_vec3	direction;
 }	t_ray;
-// The starting position of the ray：　origin;
-// direction vector：origin　→ direction
 
 typedef struct s_camera
 {
@@ -31,24 +29,12 @@ typedef struct s_camera
 	t_vec3	up;
 	double	fov;
 }	t_camera;
-// C -50,0,20   0,0,1   70
-//      │         │       │
-//      │         │       └──→ camera.fov
-//      │         │
-//      │         └──────────→ camera.direction
-//      │
-//      └────────────────────→ camera.position
 
 typedef struct s_ambient
 {
 	double	ratio;
 	t_color	color;
 }	t_ambient;
-// A 0.2 255,255,255
-//   │    │
-//   │    └──────────────→ ambient_r/g/b
-//   │
-//   └───────────────────→ ambient_ratio
 
 typedef struct s_light
 {
@@ -56,13 +42,6 @@ typedef struct s_light
 	double	brightness;
 	t_color	color;
 }	t_light;
-// L -40,0,30   0.7   255,255,255
-//      │        │         │
-//      │        │         └──→ light.r/g/b
-//      │        │
-//      │        └────────────→ light.brightness
-//      │
-//      └─────────────────────→ light.position
 
 typedef struct s_hit
 {

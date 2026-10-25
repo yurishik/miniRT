@@ -6,7 +6,7 @@
 /*   By: yurishik <yurishik@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 15:24:35 by yurishik          #+#    #+#             */
-/*   Updated: 2026/10/25 11:18:36 by yurishik         ###   ########.fr       */
+/*   Updated: 2026/10/25 11:41:01 by yurishik         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,3 @@ int	render(const t_scene *scene, t_image *image)
 	}
 	return (0);
 }
-
-// render
-//  ↓
-// t_scene
-//  ↓
-// t_image
